@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Art Room Production – școală de canto pop și pian în Craiova. Lecții de canto, pian, compoziție și înregistrare în studio.">
+<title>Art Room Production — școală de canto pop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Noto+Music&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0A0A}
+a{color:#F2EDE4}a:hover{color:#FFFFFF}
+@keyframes heroNoteFall{0%{transform:translate(0,0) rotate(var(--r));opacity:0}6%{opacity:0.5}30%{transform:translate(5px,130px) rotate(var(--r));opacity:0.38}60%{transform:translate(-4px,260px) rotate(var(--r));opacity:0.2}100%{transform:translate(3px,430px) rotate(var(--r));opacity:0}}
+@keyframes heroTwinkle{0%,100%{filter:drop-shadow(0 0 1px rgba(255,240,210,0.6))}50%{filter:drop-shadow(0 0 2px rgba(255,236,200,0.8)) brightness(1.2)}}
+.hnote{position:absolute;display:block;margin:-2.5px 0 0 -2.5px;opacity:0;animation-name:heroNoteFall,heroTwinkle;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite}
+@media (prefers-reduced-motion: reduce){.hnote{animation:none;opacity:0.8}}
+@keyframes spotSway{0%{transform:rotate(-1.4deg)}100%{transform:rotate(1.4deg)}}
+.spot-sway{position:absolute;inset:0;will-change:transform,opacity;transform-origin:calc(50% + 20px) 0;animation:spotSway 12s ease-in-out infinite alternate}
+@media (prefers-reduced-motion: reduce){.spot-sway{animation:none}}
+@keyframes spotLive{0%{opacity:0.82;transform:translateX(-50%) scale(0.99)}18%{opacity:1;transform:translateX(-50%) scale(1.02)}33%{opacity:0.88;transform:translateX(-50%) scale(1)}52%{opacity:0.97;transform:translateX(-50%) scale(1.01)}68%{opacity:0.8;transform:translateX(-50%) scale(0.98)}84%{opacity:0.95;transform:translateX(-50%) scale(1.01)}100%{opacity:0.82;transform:translateX(-50%) scale(0.99)}}
+@keyframes beamLive{0%{opacity:0.85}18%{opacity:1}33%{opacity:0.9}52%{opacity:0.98}68%{opacity:0.82}84%{opacity:0.96}100%{opacity:0.85}}
+.spot-beam{position:absolute;will-change:transform,opacity;left:calc(50% + 20px);top:-2%;width:min(78%,820px);height:104%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,238,210,0.24),rgba(255,224,184,0.10) 60%,rgba(255,224,184,0.03));clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);filter:blur(22px);animation:beamLive 90s ease-in-out infinite}
+.spot-glow{position:absolute;will-change:transform,opacity;left:calc(50% + 20px);top:-50px;width:340px;height:210px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,246,226,0.55),rgba(255,236,205,0.18) 40%,rgba(255,236,205,0) 70%);filter:blur(10px);animation:spotLive 90s ease-in-out infinite}
+.spot-pool{position:absolute;will-change:transform,opacity;left:calc(50% + 20px);bottom:2%;width:min(70%,700px);height:140px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,226,186,0.20),rgba(255,226,186,0) 70%);filter:blur(8px);animation:beamLive 90s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.spot-beam,.spot-pool,.spot-glow{animation:none}}
+.social-col::before{content:"";position:absolute;left:50%;top:-12px;bottom:-12px;width:1px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(226,182,90,0),rgba(226,182,90,0.75) 15%,rgba(226,182,90,0.75) 85%,rgba(226,182,90,0));pointer-events:none}
+.social-col .vinyl{z-index:1}
+.side-nav::before{content:"";position:absolute;left:15px;top:-12px;bottom:-12px;width:1px;background:linear-gradient(180deg,rgba(226,182,90,0),rgba(226,182,90,0.75) 15%,rgba(226,182,90,0.75) 85%,rgba(226,182,90,0));pointer-events:none}
+.pill{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:0 11px 0 4px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.05em;color:#F2EDE4;text-decoration:none;background:rgba(10,10,10,0.65);border:1px solid rgba(226,182,90,0.55);box-shadow:0 2px 6px rgba(0,0,0,0.5)}
+.pill-note{flex:none;width:22px;height:22px;padding:4px;box-sizing:border-box;border-radius:50%;fill:#0A0A0A;background:radial-gradient(circle at 35% 35%,#F3D48A,#D4A437 70%,#A97E22)}
+.pill:hover,.pill:focus-visible{border-color:#E2B65A;background:rgba(226,182,90,0.16)}
+.pill:hover .pill-note{animation:noteBob 0.6s ease-in-out infinite alternate}
+@keyframes noteBob{from{transform:translateY(0) rotate(-6deg)}to{transform:translateY(-3px) rotate(6deg)}}
+.hero-logo{left:20px}
+.hero-content{pointer-events:none}
+.collage-shade{pointer-events:none}
+.hero-content a,.hero-content button,.hero-content .hero-text{pointer-events:auto}
+.cframe-click{cursor:zoom-in}
+.media-row{position:absolute;left:3%;right:3%;bottom:28px;display:flex;justify-content:space-between;gap:16px;pointer-events:none;z-index:3}
+.media-btn{pointer-events:auto;position:relative;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:6px 18px 6px 6px;border-radius:999px;background:rgba(10,10,10,0.78);border:1.5px solid rgba(226,182,90,0.75);box-shadow:0 6px 22px rgba(0,0,0,0.55);color:#F2EDE4;text-decoration:none}
+.media-disc{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,transparent 0 40%,#0B0B0B 41%,#1E1E1E 50%,#0C0C0C 58%,#1C1C1C 68%,#0B0B0B 78%,#1A1A1A 88%,#080808 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.14)}
+.media-label{width:62%;height:62%;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 35%,#F3D48A,#D4A437 70%,#A97E22)}
+.media-label svg{width:58%;height:58%}
+.media-txt{font-weight:800;font-size:16px;letter-spacing:0.16em;text-transform:uppercase}
+.eq{display:inline-flex;align-items:flex-end;gap:3px;height:16px}
+.eq i{display:block;width:3px;height:30%;border-radius:2px;background:#E2B65A;animation:eqBar 1.1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:-0.35s}.eq i:nth-child(3){animation-delay:-0.7s}.eq i:nth-child(4){animation-delay:-0.2s}
+@keyframes eqBar{0%,100%{height:25%}50%{height:100%}}
+.media-btn:hover{border-color:#E2B65A;background:rgba(226,182,90,0.14)}
+.media-btn:hover .media-disc{animation:vinylSpin 1.6s linear infinite}
+@media (prefers-reduced-motion: reduce){.eq i,.media-btn:hover .media-disc{animation:none}}
+.page-ov{position:fixed;inset:0;z-index:80;overflow-y:auto;background:#0A0A0A;-webkit-overflow-scrolling:touch}
+.page-bar{position:sticky;top:0;z-index:2;padding:12px 16px;background:linear-gradient(#0A0A0A 70%,rgba(10,10,10,0))}
+.page-back{min-height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(226,182,90,0.6);background:rgba(10,10,10,0.8);color:#F2EDE4;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.page-back:hover{border-color:#E2B65A}
+button.pill,button.media-btn{font:inherit;cursor:pointer}
+button.media-btn{font-weight:inherit}
+.wa-btn{position:fixed;right:18px;bottom:18px;z-index:85;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;background:radial-gradient(circle at 35% 35%,#F3D48A,#D4A437 70%,#A97E22);box-shadow:0 6px 18px rgba(0,0,0,0.55),0 0 0 2px rgba(10,10,10,0.6)}
+.wa-btn::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(226,182,90,0.7);animation:waPulse 2.6s ease-out infinite;pointer-events:none}
+@keyframes waPulse{0%{transform:scale(0.85);opacity:0.9}100%{transform:scale(1.35);opacity:0}}
+.wa-tip{position:absolute;right:68px;white-space:nowrap;padding:6px 12px;border-radius:999px;background:rgba(10,10,10,0.85);border:1px solid rgba(226,182,90,0.6);color:#F2EDE4;font-size:13px;font-weight:600;opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s;pointer-events:none}
+.wa-btn:hover .wa-tip,.wa-btn:focus-visible .wa-tip{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.wa-btn::after{animation:none;opacity:0}}
+.vinyl-slide{position:absolute;top:5%;right:9%;height:90%;aspect-ratio:1/1;transition:transform 0.7s cubic-bezier(.2,.8,.2,1)}
+.vinyl-big{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,transparent 0 31%,#0B0B0B 32%,#1E1E1E 38%,#0C0C0C 44%,#1D1D1D 51%,#0B0B0B 58%,#1B1B1B 66%,#0B0B0B 74%,#1A1A1A 84%,#090909 94%,#151515 100%);box-shadow:0 6px 20px rgba(0,0,0,0.6),inset 0 0 0 1px rgba(255,255,255,0.1);animation:vinylSpin 3s linear infinite;animation-play-state:paused;position:relative}
+.vinyl-big::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 30deg,rgba(255,255,255,0) 0deg,rgba(255,255,255,0.12) 40deg,rgba(255,255,255,0) 80deg,rgba(255,255,255,0) 180deg,rgba(255,255,255,0.08) 220deg,rgba(255,255,255,0) 260deg)}
+.vinyl-big-label{width:30%;height:30%;border-radius:50%;background:radial-gradient(circle,#0A0A0A 0 9%,#F3D48A 10%,#D4A437 60%,#A97E22 100%);box-shadow:inset 0 0 0 2px rgba(10,10,10,0.35)}
+@media (prefers-reduced-motion: reduce){.vinyl-big{animation:none}.vinyl-slide{transition:none}}
+.mos1,.mos2,.mos3{display:grid;gap:3px;background:#0A0A0A}
+.mos1 img,.mos2 img,.mos3 img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
+.mos1{aspect-ratio:4/3}
+.mos2{aspect-ratio:4/3;grid-template-columns:1fr 1fr}
+.mos3{aspect-ratio:4/3;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}
+.mos3 img:first-child{grid-row:1 / 3}
+.conc-card{margin-top:32px;background:#0A0A0A;border:1px solid rgba(226,182,90,0.3);border-radius:22px;overflow:hidden}
+.conc-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(140px,19vw,240px);gap:4px}
+.conc-ph{padding:0;border:0;background:#141414;cursor:zoom-in;overflow:hidden;display:block}
+.conc-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.conc-ph:hover img{transform:scale(1.04)}
+.cg-big{grid-column:span 2;grid-row:span 2}
+.cg-wide{grid-column:span 3}
+.conc-body{padding:26px 28px 30px}
+.conc-meta{margin:0 0 6px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#8F8A84}
+.conc-date{color:#E2B65A;font-weight:600}
+.conc-title{margin:0 0 12px;font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;color:#F2EDE4}
+.conc-text{margin:0;color:#C9C4BC;font-size:16.5px;line-height:1.65;max-width:760px}
+@media (max-width: 760px){.conc-grid{grid-template-columns:1fr 1fr;grid-auto-rows:44vw}.cg-odd,.cg-wide{grid-column:1 / -1}.conc-body{padding:20px 18px 24px}}
+.mosS{display:grid;gap:3px;background:#0A0A0A;grid-template-rows:auto auto}
+.mosS img{width:100%;height:auto;display:block}
+@keyframes vinylSpin{to{transform:rotate(360deg)}}
+.vinyl{position:relative;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;text-decoration:none;background:radial-gradient(circle,transparent 0 44%,#0B0B0B 45%,#1E1E1E 52%,#0C0C0C 58%,#1C1C1C 66%,#0B0B0B 73%,#1A1A1A 82%,#080808 100%);box-shadow:0 2px 6px rgba(0,0,0,0.6),inset 0 0 0 1px rgba(255,255,255,0.12)}
+.vinyl::after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0) 45%);pointer-events:none}
+.vinyl-label{display:flex;align-items:center;justify-content:center;width:52%;height:52%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#E8414F,#B3122A 65%,#7A0A16)}
+.vinyl:hover,.vinyl:focus-visible{animation:vinylSpin 1.6s linear infinite}
+@media (prefers-reduced-motion: reduce){.vinyl:hover,.vinyl:focus-visible{animation:none}}
+@keyframes cycFade3{0%{opacity:0}6%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
+@keyframes cycFade4{0%{opacity:0}4.5%{opacity:1}25%{opacity:1}29.5%{opacity:0}100%{opacity:0}}
+.cyc3{opacity:0;animation:cycFade3 36s ease-in-out infinite}
+.cyc4{opacity:0;animation:cycFade4 48s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.cyc3,.cyc4{animation:none;opacity:1}}
+.cf3,.cf6{display:none}
+header{padding-top:36px!important}
+.collage-layer,.collage-shade{top:220px!important;bottom:150px!important}
+.cf1,.cf4{top:1%!important;height:48%!important}
+.cf2,.cf5{top:51%!important;height:47%!important}
+@media (max-width: 760px){.media-row{top:924px;bottom:auto;left:16px;right:16px}.media-btn{min-height:44px;padding:5px 14px 5px 5px;gap:8px}.media-disc{width:34px;height:34px}.media-txt{font-size:13px}.collage-layer,.collage-shade{top:480px!important;bottom:auto!important;height:400px}.cf1{left:-6%!important;top:0%!important;width:46%!important;height:49%!important}.cf2{left:-4%!important;top:51%!important;width:46%!important;height:49%!important}.cf4{left:60%!important;top:0%!important;width:46%!important;height:49%!important}.cf5{left:58%!important;top:51%!important;width:46%!important;height:49%!important}.hero-logo{width:230px!important}.hero-h1{margin:0!important}.hero-sec{padding-top:766px!important}.hero-text{max-width:100%!important}}
+.collage-shade{background-image:linear-gradient(90deg,rgba(10,10,10,0.25) 0%,rgba(10,10,10,0.58) 30%,rgba(10,10,10,0.62) 50%,rgba(10,10,10,0.58) 70%,rgba(10,10,10,0.25) 100%)}
+.bg-pian{background-color:#0A0A0A;background-image:linear-gradient(rgba(10,10,10,0.6),rgba(10,10,10,0.6)),url(a/646911ef078090ddf6c179b77ca3d1d9.jpg);background-size:cover;background-position:40% 26%}
+.bg-scena{background-color:#0A0A0A;background-image:linear-gradient(rgba(10,10,10,0.62),rgba(10,10,10,0.62)),url(a/a0a2c0b650b7966a387df55c4cae9d69.jpg);background-size:cover;background-position:50% 18%}
+</style>
+</helmet>
+<div style="background: #0A0A0A; color: #F2EDE4; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.6">
+<sc-if value="{{showIntro}}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; inset: 0; z-index: 100; background: #0A0A0A; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 24px; box-sizing: border-box; text-align: center; opacity: {{introOp}}">
+<svg role="img" aria-label="O mână desenează cu creta logoul Art-Room Production" viewBox="-20 -20 674 680" style="width: min(86vw, 62vh, 520px); height: auto; display: block; overflow: visible">
+<defs>
+<filter id="chalky" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="1.8"></feDisplacementMap></filter>
+<filter id="noteGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="b"></feGaussianBlur><feColorMatrix in="b" type="matrix" values="1 0 0 0 0.1  0 1 0 0 0.05  0 0 1 0 0  0 0 0 1.6 0" result="g"></feColorMatrix><feMerge><feMergeNode in="g"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+<filter id="softMask" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="12"></feGaussianBlur></filter>
+<filter id="handShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="6" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity="0.6"></feDropShadow></filter>
+<linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2CDB4"></stop><stop offset="0.6" stop-color="#E2B194"></stop><stop offset="1" stop-color="#C98F72"></stop></linearGradient>
+<linearGradient id="skinLight" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7DAC4"></stop><stop offset="1" stop-color="#E3B497"></stop></linearGradient>
+<linearGradient id="skinShade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E0AE92"></stop><stop offset="1" stop-color="#B98166"></stop></linearGradient>
+<radialGradient id="skinBack" cx="0.4" cy="0.35" r="0.75"><stop offset="0" stop-color="#F6D5BF"></stop><stop offset="0.6" stop-color="#E6B79A"></stop><stop offset="1" stop-color="#C68C6E"></stop></radialGradient>
+<linearGradient id="skinArm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9BDA1"></stop><stop offset="1" stop-color="#B9805F"></stop></linearGradient>
+</defs>
+<mask id="revealMask" maskUnits="userSpaceOnUse" x="-20" y="-20" width="674" height="680">
+<rect x="-20" y="-20" width="674" height="680" fill="#000000"></rect>
+<g fill="none" stroke="#FFFFFF" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" filter="url(#softMask)" opacity="{{maskStrokeOp}}">
+<sc-for list="{{strokes}}" as="mk" hint-placeholder-count="0">
+<path d="{{mk.d}}" stroke-dasharray="{{mk.len}}" stroke-dashoffset="{{mk.moff}}"></path>
+</sc-for>
+</g>
+<rect x="-20" y="-20" width="674" height="680" fill="#FFFFFF" opacity="{{fullMask}}"></rect>
+</mask>
+<image href="a/7b9a05122bb940ed01dea2e7a3954eaa.png" x="0" y="0" width="634" height="640" mask="url(#revealMask)" opacity="{{logoOp}}"></image>
+<g filter="url(#chalky)" opacity="{{linesOp}}" fill="none" stroke="#F2EDE4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+<sc-for list="{{strokes}}" as="sk" hint-placeholder-count="0">
+<path d="{{sk.d}}" stroke-dasharray="{{sk.len}}" stroke-dashoffset="{{sk.off}}"></path>
+</sc-for>
+</g>
+<g fill="#FFFFFF" filter="url(#noteGlow)">
+<sc-for list="{{notes}}" as="n" hint-placeholder-count="0">
+<g transform="translate({{n.x}} {{n.y}}) rotate({{n.r}}) scale({{n.s}})" opacity="{{n.o}}">
+<sc-if value="{{n.beam}}" hint-placeholder-val="{{ false }}">
+<path d="M 2.5 19 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 13.5 17 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 8.4 18.5 V 5.5 L 19.6 3.5 V 16.5 L 18.2 16.5 V 6.4 L 9.8 7.9 V 18.5 Z"></path>
+</sc-if>
+<sc-if value="{{n.single}}" hint-placeholder-val="{{ false }}">
+<path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path>
+</sc-if>
+</g>
+</sc-for>
+</g>
+<circle cx="{{handX}}" cy="{{handY}}" r="7" fill="#FFF0D2" opacity="{{tipGlow}}" filter="url(#softMask)"></circle>
+<circle cx="{{handX}}" cy="{{handY}}" r="2.5" fill="#FFFFFF" opacity="{{tipGlow}}"></circle>
+</svg>
+<div style="height: 2px; width: {{lineW}}px; background: {{gold}}"></div>
+<p aria-label="Unde vocea prinde contur, iar visul devine… ecou!" style="margin: 0; max-width: 900px; font-family: &#39;Great Vibes&#39;, cursive; font-size: clamp(2.5rem, 7.5vw, 4.4rem); line-height: 1.2; color: #F2EDE4; display: flex; flex-wrap: wrap; justify-content: center; column-gap: 0.28em">
+<sc-for list="{{words}}" as="w" hint-placeholder-count="0">
+<span aria-hidden="true" style="white-space: nowrap; display: inline-block"><sc-for list="{{w.chars}}" as="c" hint-placeholder-count="0"><span style="display: inline-block; opacity: {{c.op}}; transform: translateY({{c.y}}px); color: {{c.col}}">{{c.ch}}</span></sc-for></span>
+</sc-for>
+</p>
+<button type="button" onClick="{{skipIntro}}" style="position: absolute; right: 20px; bottom: 20px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #4A4744; background: transparent; color: #C9C4BC; font: inherit; font-size: 14px; cursor: pointer">{{t.skip}}</button>
+</div>
+</sc-if>
+
+<div style="position: relative; z-index: 0; overflow: hidden; background: #0A0A0A">
+<div class="collage-layer" aria-hidden="true" style="position: absolute; inset: 0">
+<div class="cf1 cframe-click" onClick="{{openFrame}}" style="position: absolute; left: -5%; top: -5%; width: 33%; height: 40%; border: 6px solid #F2EDE4; border-radius: 4px; transform: rotate(-4deg); box-shadow: 0 12px 32px rgba(0,0,0,0.6); overflow: hidden; background: #161616; box-sizing: border-box">
+<img fetchpriority="high" decoding="async" class="cyc4" src="a/be1ea931e1f486b9fa302bb8fd16ac0e.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 52% 30%; animation-delay: -0.0s">
+<img fetchpriority="low" decoding="async" class="cyc4" src="a/0ca03c9e60f508af67349882629c77d3.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; animation-delay: -12.0s">
+<img fetchpriority="low" decoding="async" class="cyc4" src="a/66ac722fbdfd76fcb3cc8ee5c94c202a.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 35%; animation-delay: -24.0s">
+<img fetchpriority="low" decoding="async" class="cyc4" src="a/292dadf5732c877756901a4db5ca08f6.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 28%; animation-delay: -36.0s">
+</div>
+<div class="cf2 cframe-click" onClick="{{openFrame}}" style="position: absolute; left: -3%; top: 31%; width: 32%; height: 38%; border: 6px solid #F2EDE4; border-radius: 4px; transform: rotate(3deg); box-shadow: 0 12px 32px rgba(0,0,0,0.6); overflow: hidden; background: #161616; box-sizing: border-box">
+<img fetchpriority="high" decoding="async" class="cyc4" src="a/470bb91a3a142706a3db2033b44d6771.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 25%; animation-delay: -4.3s">
+<img fetchpriority="low" decoding="async" class="cyc4" src="a/3ed980324002616a5d5459c6a40295fc.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 52% 15%; animation-delay: -16.3s">
+<img fetchpriority="low" decoding="async" class="cyc4" src="a/2b517aba2172ea05732de08943559727.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 25%; animation-delay: -28.3s">
+<img fetchpriority="low" decoding="async" class="cyc4" src="a/d5de33ede99cb1d146736f48c199f83b.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 35%; animation-delay: -40.3s">
+</div>
+<div class="cf3 cframe-click" onClick="{{openFrame}}" style="position: absolute; left: -6%; top: 65%; width: 34%; height: 42%; border: 6px solid #F2EDE4; border-radius: 4px; transform: rotate(-3deg); box-shadow: 0 12px 32px rgba(0,0,0,0.6); overflow: hidden; background: #161616; box-sizing: border-box">
+<img fetchpriority="high" decoding="async" class="cyc4" src="a/c91b5416a32ff861f06b6a67cb959bc4.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 38% 28%; animation-delay: -8.6s">
+<img fetchpriority="low" decoding="async" class="cyc4" src="a/646911ef078090ddf6c179b77ca3d1d9.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 38% 30%; animation-delay: -20.6s">
+<img fetchpriority="low" decoding="async" class="cyc4" src="a/a0a2c0b650b7966a387df55c4cae9d69.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 45% 22%; animation-delay: -32.6s">
+<img fetchpriority="low" decoding="async" class="cyc4" src="a/6485f8d6dfdc290d4ab3dfd4a2cd3242.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; animation-delay: -44.6s">
+</div>
+<div class="cf4 cframe-click" onClick="{{openFrame}}" style="position: absolute; left: 72%; top: -6%; width: 34%; height: 40%; border: 6px solid #F2EDE4; border-radius: 4px; transform: rotate(4deg); box-shadow: 0 12px 32px rgba(0,0,0,0.6); overflow: hidden; background: #161616; box-sizing: border-box">
+<img fetchpriority="high" decoding="async" class="cyc3" src="a/6ba277e9c76446b231f6c560faa39d8e.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% 35%; animation-delay: -0.9s">
+<img fetchpriority="low" decoding="async" class="cyc3" src="a/25e1f77b9876dc9ba0ee2a259e39ad2d.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; animation-delay: -12.9s">
+<img fetchpriority="low" decoding="async" class="cyc3" src="a/0c3731a94906491a2064541ad4630f9d.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 45% 30%; animation-delay: -24.9s">
+</div>
+<div class="cf5 cframe-click" onClick="{{openFrame}}" style="position: absolute; left: 71%; top: 30%; width: 32%; height: 40%; border: 6px solid #F2EDE4; border-radius: 4px; transform: rotate(-3deg); box-shadow: 0 12px 32px rgba(0,0,0,0.6); overflow: hidden; background: #161616; box-sizing: border-box">
+<img fetchpriority="high" decoding="async" class="cyc3" src="a/826c04eaf17f2a6b83ef1bd0dcf0839c.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; animation-delay: -5.2s">
+<img fetchpriority="low" decoding="async" class="cyc3" src="a/c1e1e3726d0c74d5dd517fc4c0876e8d.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 52% 22%; animation-delay: -17.2s">
+<img fetchpriority="low" decoding="async" class="cyc3" src="a/8ee820c7c986c051212cd59c351637a8.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 35%; animation-delay: -29.2s">
+</div>
+<div class="cf6 cframe-click" onClick="{{openFrame}}" style="position: absolute; left: 73%; top: 66%; width: 33%; height: 40%; border: 6px solid #F2EDE4; border-radius: 4px; transform: rotate(3deg); box-shadow: 0 12px 32px rgba(0,0,0,0.6); overflow: hidden; background: #161616; box-sizing: border-box">
+<img fetchpriority="high" decoding="async" class="cyc3" src="a/541805bb1d6a6ed0c9289b62f6e18433.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 45% 22%; animation-delay: -9.5s">
+<img fetchpriority="low" decoding="async" class="cyc3" src="a/347fad54096cf84adf78fec780b64576.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 22%; animation-delay: -21.5s">
+<img fetchpriority="low" decoding="async" class="cyc3" src="a/322443a50ae8f1d02e76b5a8cc442260.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 42%; animation-delay: -33.5s">
+</div>
+</div>
+<div class="collage-shade" aria-hidden="true" style="position: absolute; inset: 0"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; overflow: hidden; opacity: 0.3"><div class="spot-sway"><div class="spot-beam"></div><div class="spot-glow"></div><div class="spot-pool"></div></div></div>
+<div class="hero-content" style="position: relative">
+<nav class="side-nav" aria-label="Meniu" style="position: absolute; top: 226px; left: 10px; z-index: 5; display: flex; flex-direction: column; align-items: flex-start; gap: 18px"><button type="button" class="pill" onClick="{{goTeam}}"><svg class="pill-note" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18 a3.5 2.6 -20 1 0 7 0 a3.5 2.6 -20 1 0 -7 0 Z M10.6 17.6 V4 h1.5 c0.7 2.4 4.8 3.1 4.6 6.8 c-0.8 -2.2 -2.8 -3.3 -4.6 -3.5 V17.6 Z"></path></svg><span>{{t.navTeam}}</span></button><button type="button" class="pill" onClick="{{goConcerts}}"><svg class="pill-note" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 19 a3.5 2.6 -20 1 0 7 0 a3.5 2.6 -20 1 0 -7 0 Z M13.5 17 a3.5 2.6 -20 1 0 7 0 a3.5 2.6 -20 1 0 -7 0 Z M8.4 18.5 V5.5 L19.6 3.5 V16.5 L18.2 16.5 V6.4 L9.8 7.9 V18.5 Z"></path></svg><span>{{t.navConcerts}}</span></button><button type="button" class="pill" onClick="{{goSubs}}"><svg class="pill-note" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19 a4 3 -20 1 0 8 0 a4 3 -20 1 0 -8 0 Z M12.6 18.5 V3 h1.6 V18.5 Z"></path></svg><span>{{t.navSubs}}</span></button><button type="button" class="pill" onClick="{{goRules}}"><svg class="pill-note" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 15 a3.5 2.6 -20 1 0 7 0 a3.5 2.6 -20 1 0 -7 0 Z M12.6 14.6 V2.5 h1.5 c0.5 1.8 3.5 2.4 3.4 5.2 c-0.6 -1.6 -2 -2.4 -3.4 -2.6 c0.4 1.6 3.2 2.2 3.1 4.8 c-0.6 -1.5 -1.9 -2.2 -3.1 -2.4 V14.6 Z"></path></svg><span>{{t.navRules}}</span></button></nav>
+<div style="position: absolute; top: 10px; right: 10px; z-index: 5; display: flex; flex-direction: column; align-items: flex-end; gap: 6px">
+<div style="display: flex; gap: 2px" role="group" aria-label="Limba / Language">
+<button type="button" onClick="{{setRo}}" aria-pressed="{{isRo}}" aria-label="Română" title="Română" style="padding: 6px; border: 0; background: transparent; cursor: pointer; line-height: 0"><span style="display: block; border-radius: 3px; overflow: hidden; box-shadow: 0 0 0 1.5px {{roRing}}, 0 2px 6px rgba(0,0,0,0.5); opacity: {{roOp}}"><svg viewBox="0 0 3 2" width="20" height="13" preserveAspectRatio="none" aria-hidden="true" style="display: block"><rect width="1" height="2" fill="#002B7F"></rect><rect x="1" width="1" height="2" fill="#FCD116"></rect><rect x="2" width="1" height="2" fill="#CE1126"></rect></svg></span></button>
+<button type="button" onClick="{{setEn}}" aria-pressed="{{isEn}}" aria-label="English" title="English" style="padding: 6px; border: 0; background: transparent; cursor: pointer; line-height: 0"><span style="display: block; border-radius: 3px; overflow: hidden; box-shadow: 0 0 0 1.5px {{enRing}}, 0 2px 6px rgba(0,0,0,0.5); opacity: {{enOp}}"><svg viewBox="0 0 60 30" width="20" height="13" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="display: block"><clipPath id="uk-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"></path></clipPath><rect width="60" height="30" fill="#012169"></rect><path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFFFFF" stroke-width="6"></path><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"></path><path d="M30,0 v30 M0,15 h60" stroke="#FFFFFF" stroke-width="10"></path><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"></path></svg></span></button>
+</div>
+<nav class="social-col" aria-label="Rețele sociale / Social media" style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 176px; margin-right: 6px"><a class="vinyl" href="https://www.facebook.com/profile.php?id=100064056611677" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><span class="vinyl-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.6-3.5h-3.1V7a.9.9 0 0 1 .9-.9H15z"></path></svg></span></a><a class="vinyl" href="https://www.instagram.com/art_room_production/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><span class="vinyl-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="0.6"></circle></svg></span></a><a class="vinyl" href="https://www.tiktok.com/@artroomproduction" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><span class="vinyl-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"></path><path d="M14 3c.5 2.5 2.5 4.5 5 4.5"></path></svg></span></a><a class="vinyl" href="https://www.youtube.com/@artroomproduction6974" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><span class="vinyl-label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"></rect><path d="m10 9 5 3-5 3z"></path></svg></span></a></nav>
+</div>
+<header style="max-width: 1180px; margin: 0 auto; padding: 16px 24px; display: flex; flex-direction: column; align-items: center; gap: 4px">
+<h1 class="hero-h1" style="margin: 4px 0 0"><span class="hero-logo" style="position: relative; display: block; width: clamp(200px, 28vw, 290px); margin: 0 auto"><img fetchpriority="high" src="a/ecf4efffec1e621b2011d687a59de706.png" alt="Art-Room Production" style="display: block; width: 100%; height: auto; filter: drop-shadow(0 0 6px rgba(0,0,0,0.9))"><span aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none"><span class="hnote" style="left: 65.5%; top: 55.2%; width: 4.8px; height: 4.8px; --r: 10deg; animation-duration: 31.89s, 1.47s; animation-delay: -8.75s, -0.95s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 2.5 19 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 13.5 17 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 8.4 18.5 V 5.5 L 19.6 3.5 V 16.5 L 18.2 16.5 V 6.4 L 9.8 7.9 V 18.5 Z"></path></svg></span><span class="hnote" style="left: 22.8%; top: 32.7%; width: 4.0px; height: 4.0px; --r: 17deg; animation-duration: 24.05s, 1.20s; animation-delay: -15.04s, -1.63s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 69.2%; top: 54.1%; width: 5.3px; height: 5.3px; --r: 6deg; animation-duration: 35.49s, 1.33s; animation-delay: -17.68s, -1.92s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 74.4%; top: 38.6%; width: 4.5px; height: 4.5px; --r: 3deg; animation-duration: 25.89s, 0.92s; animation-delay: -38.62s, -4.19s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 2.5 19 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 13.5 17 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 8.4 18.5 V 5.5 L 19.6 3.5 V 16.5 L 18.2 16.5 V 6.4 L 9.8 7.9 V 18.5 Z"></path></svg></span><span class="hnote" style="left: 49.0%; top: 17.4%; width: 5.1px; height: 5.1px; --r: 1deg; animation-duration: 24.34s, 1.18s; animation-delay: -6.54s, -0.71s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 67.5%; top: 53.8%; width: 4.5px; height: 4.5px; --r: -8deg; animation-duration: 37.62s, 1.05s; animation-delay: -3.06s, -0.33s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 82.7%; top: 29.2%; width: 5.0px; height: 5.0px; --r: -16deg; animation-duration: 36.58s, 0.99s; animation-delay: -23.58s, -2.56s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 2.5 19 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 13.5 17 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 8.4 18.5 V 5.5 L 19.6 3.5 V 16.5 L 18.2 16.5 V 6.4 L 9.8 7.9 V 18.5 Z"></path></svg></span><span class="hnote" style="left: 18.3%; top: 38.2%; width: 3.9px; height: 3.9px; --r: 6deg; animation-duration: 39.25s, 1.10s; animation-delay: -36.03s, -3.91s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 76.4%; top: 28.2%; width: 4.2px; height: 4.2px; --r: -15deg; animation-duration: 31.97s, 1.01s; animation-delay: -10.77s, -1.17s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 42.8%; top: 7.3%; width: 3.5px; height: 3.5px; --r: 13deg; animation-duration: 25.17s, 1.06s; animation-delay: -24.34s, -2.64s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 2.5 19 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 13.5 17 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 8.4 18.5 V 5.5 L 19.6 3.5 V 16.5 L 18.2 16.5 V 6.4 L 9.8 7.9 V 18.5 Z"></path></svg></span><span class="hnote" style="left: 28.3%; top: 20.1%; width: 4.8px; height: 4.8px; --r: 2deg; animation-duration: 27.01s, 1.48s; animation-delay: -6.91s, -0.75s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 34.7%; top: 56.1%; width: 5.3px; height: 5.3px; --r: -9deg; animation-duration: 28.02s, 1.44s; animation-delay: -6.83s, -0.74s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 28.9%; top: 51.4%; width: 4.8px; height: 4.8px; --r: 6deg; animation-duration: 38.88s, 1.54s; animation-delay: -38.88s, -4.22s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 2.5 19 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 13.5 17 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 8.4 18.5 V 5.5 L 19.6 3.5 V 16.5 L 18.2 16.5 V 6.4 L 9.8 7.9 V 18.5 Z"></path></svg></span><span class="hnote" style="left: 66.2%; top: 55.6%; width: 3.5px; height: 3.5px; --r: -5deg; animation-duration: 29.66s, 1.56s; animation-delay: -20.56s, -2.23s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 50.9%; top: 57.0%; width: 4.4px; height: 4.4px; --r: -17deg; animation-duration: 30.70s, 1.49s; animation-delay: -30.03s, -3.26s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 72.6%; top: 40.5%; width: 4.1px; height: 4.1px; --r: -16deg; animation-duration: 30.96s, 1.51s; animation-delay: -6.91s, -0.75s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 2.5 19 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 13.5 17 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 8.4 18.5 V 5.5 L 19.6 3.5 V 16.5 L 18.2 16.5 V 6.4 L 9.8 7.9 V 18.5 Z"></path></svg></span><span class="hnote" style="left: 36.7%; top: 20.4%; width: 3.8px; height: 3.8px; --r: -12deg; animation-duration: 36.03s, 1.57s; animation-delay: -2.02s, -0.22s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 19.8%; top: 30.4%; width: 3.5px; height: 3.5px; --r: -11deg; animation-duration: 27.47s, 1.52s; animation-delay: -34.02s, -3.69s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 29.1%; top: 21.9%; width: 4.7px; height: 4.7px; --r: 14deg; animation-duration: 38.08s, 1.31s; animation-delay: -12.53s, -1.36s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 2.5 19 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 13.5 17 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 8.4 18.5 V 5.5 L 19.6 3.5 V 16.5 L 18.2 16.5 V 6.4 L 9.8 7.9 V 18.5 Z"></path></svg></span><span class="hnote" style="left: 69.8%; top: 53.2%; width: 4.2px; height: 4.2px; --r: -4deg; animation-duration: 26.10s, 1.32s; animation-delay: -29.02s, -3.15s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 30.0%; top: 13.9%; width: 4.7px; height: 4.7px; --r: -12deg; animation-duration: 28.19s, 0.99s; animation-delay: -16.42s, -1.78s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 4.5 18 a 4 3 -20 1 0 8 0 a 4 3 -20 1 0 -8 0 Z M 11 17.5 V 3 h 1.6 c 0.8 2.6 5.2 3.4 5 7.4 c -0.8 -2.4 -3 -3.6 -5 -3.8 V 17.5 Z"></path></svg></span><span class="hnote" style="left: 67.8%; top: 44.0%; width: 3.5px; height: 3.5px; --r: -13deg; animation-duration: 31.33s, 1.36s; animation-delay: -5.70s, -0.62s"><svg viewBox="0 0 24 24" width="100%" height="100%" fill="#FFFFFF"><path d="M 2.5 19 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 13.5 17 a 3.5 2.6 -20 1 0 7 0 a 3.5 2.6 -20 1 0 -7 0 Z M 8.4 18.5 V 5.5 L 19.6 3.5 V 16.5 L 18.2 16.5 V 6.4 L 9.8 7.9 V 18.5 Z"></path></svg></span></span></span></h1>
+</header>
+
+<section id="acasa" class="hero-sec" style="position: relative; max-width: 1180px; margin: 0 auto; padding: 168px 24px 64px; min-height: 520px; box-sizing: border-box; display: flex; align-items: flex-start; justify-content: center">
+<div class="hero-text" style="width: 100%; max-width: min(520px, 38vw); min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
+<div style="position: relative; left: 0px; display: flex; gap: 6px" role="img" aria-label="{{t.stars}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg></div>
+<p style="margin: 0; font-size: 21px; line-height: 1.45; font-weight: 600; color: #F2EDE4">{{t.heroLead}}</p>
+<p style="margin: 0; font-size: 16px; color: #C9C4BC">{{t.heroSub}}</p>
+<div style="width: 100%; text-align: left">
+<p style="margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: {{gold}}; text-align: center">{{t.weDo}}</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px; font-size: 15.5px; line-height: 1.5">
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><path d="M12 18v4"></path></svg><div><p style="margin: 0; color: #F2EDE4; font-weight: 600">{{t.s1t}}</p><p style="margin: 4px 0 0; color: #B9B3AA; font-size: 14.5px; line-height: 1.55">{{t.s1d}}</p></div></li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M7 5v8"></path><path d="M12 5v8"></path><path d="M17 5v8"></path><path d="M2 13h20"></path></svg><div><p style="margin: 0; color: #F2EDE4; font-weight: 600">{{t.s2t}}</p><p style="margin: 4px 0 0; color: #B9B3AA; font-size: 14.5px; line-height: 1.55">{{t.s2d}}</p></div></li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg><div><p style="margin: 0; color: #F2EDE4; font-weight: 600">{{t.s3t}}</p><p style="margin: 4px 0 0; color: #B9B3AA; font-size: 14.5px; line-height: 1.55">{{t.s3d}}</p></div></li>
+<li style="display: flex; gap: 12px; align-items: flex-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M11 5 6 9H3v6h3l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg><div><p style="margin: 0; color: #F2EDE4; font-weight: 600">{{t.s4t}}</p><p style="margin: 4px 0 0; color: #B9B3AA; font-size: 14.5px; line-height: 1.55">{{t.s4d}}</p></div></li>
+</ul>
+</div>
+<p style="margin: 4px 0 0; font-family: &#39;Great Vibes&#39;, cursive; font-size: 46px; line-height: 1.1; color: {{gold}}">{{t.wait}}</p>
+<button type="button" onClick="{{openPhone}}" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: {{red}}; color: #FFFFFF; font-weight: 600; text-decoration: none; border: 0; font: inherit; font-weight: 600; cursor: pointer">{{t.cta}}</button>
+</div>
+</section>
+<div class="media-row"><button type="button" class="media-btn" onClick="{{goGallery}}"><span class="media-disc"><span class="media-label"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span></span><span class="media-txt">{{t.mFoto}}</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button><button type="button" class="media-btn" onClick="{{goVideo}}"><span class="media-disc"><span class="media-label"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0A0A0A" aria-hidden="true"><path d="M9 6.5v11l9-5.5z"></path></svg></span></span><span class="media-txt">{{t.mVideo}}</span><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button></div>
+
+</div>
+</div>
+
+
+<div style="display: none"><section id="despre" style="max-width: 1180px; margin: 0 auto; padding: 112px 24px; display: flex; flex-wrap: wrap; gap: 48px">
+<h2 style="flex: 1 1 320px; margin: 0; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15">{{t.aboutH}}</h2>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px; color: #C9C4BC; font-size: 18px">
+<p style="margin: 0">{{t.about1}}</p>
+<p style="margin: 0">{{t.about2}}</p>
+<p style="margin: 0">{{t.about3}}</p>
+</div>
+</section></div>
+
+<div style="display: none"><section class="bg-pian" aria-label="Lecție de pian" style="border-top: 3px solid {{gold}}">
+<div style="max-width: 1180px; margin: 0 auto; padding: 160px 24px; text-align: center">
+<p style="margin: 0; font-family: &#39;Great Vibes&#39;, cursive; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.15; color: #FFFFFF">{{t.band1}}</p>
+</div>
+</section></div>
+
+<div style="display: none"><section id="lectii" style="background: #111111; border-top: 1px solid #242322">
+<div style="max-width: 1180px; margin: 0 auto; padding: 112px 24px">
+<h2 style="margin: 0 0 12px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15">{{t.offerH}}</h2>
+<p style="margin: 0 0 48px; max-width: 640px; color: #C9C4BC; font-size: 18px">{{t.offerSub}}</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+
+<div style="background: #181818; border: 1px solid #2A2928; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><path d="M12 18v4"></path></svg>
+<h3 style="margin: 0; font-weight: 600; font-size: 22px">{{t.c1h}}</h3>
+<ul style="margin: 0; padding-left: 20px; color: #C9C4BC; display: flex; flex-direction: column; gap: 6px">
+<li>{{t.s1t}}</li>
+<li>{{t.c1a}}</li>
+<li>{{t.c1b}}</li>
+<li>{{t.c1c}}</li>
+</ul>
+<p style="margin: auto 0 0; font-weight: 600; font-size: 20px; color: {{gold}}">{{t.priceCanto}}</p>
+</div>
+
+<div style="background: #181818; border: 1px solid #2A2928; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M7 5v8"></path><path d="M12 5v8"></path><path d="M17 5v8"></path><path d="M2 13h20"></path></svg>
+<h3 style="margin: 0; font-weight: 600; font-size: 22px">{{t.c2h}}</h3>
+<ul style="margin: 0; padding-left: 20px; color: #C9C4BC; display: flex; flex-direction: column; gap: 6px">
+<li>{{t.c2a}}</li>
+<li>{{t.c2b}}</li>
+<li>{{t.c2c}}</li>
+</ul>
+<p style="margin: auto 0 0; font-weight: 600; font-size: 20px; color: {{gold}}">{{t.pricePian}}</p>
+</div>
+
+<div style="background: #181818; border: 1px solid #2A2928; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3z"></path><path d="M3 19a2 2 0 0 0 2 2h1v-6H3z"></path></svg>
+<h3 style="margin: 0; font-weight: 600; font-size: 22px">{{t.c3h}}</h3>
+<p style="margin: 0; color: #C9C4BC">{{t.c3d}}</p>
+<p style="margin: auto 0 0; font-weight: 600; font-size: 20px; color: {{gold}}">{{t.price2}}</p>
+</div>
+
+<div style="background: #181818; border: 1px solid #2A2928; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+<h3 style="margin: 0; font-weight: 600; font-size: 22px">{{t.c4h}}</h3>
+<p style="margin: 0; color: #C9C4BC">{{t.c4d}}</p>
+<p style="margin: auto 0 0; font-weight: 600; font-size: 20px; color: {{gold}}">{{t.price2}}</p>
+</div>
+
+</div>
+</div>
+</section></div>
+
+<section id="cantece" style="background: #0A0A0A; border-top: 1px solid #242322">
+<div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px 88px; text-align: center">
+<h2 style="margin: 0 0 8px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15; color: #F2EDE4">{{t.songsH}}</h2>
+<p style="margin: 0 auto 44px; max-width: 620px; color: #C9C4BC; font-size: 17px">{{t.songsSub}}</p>
+<sc-if value="{{noSongs}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0 auto 48px; max-width: 520px; padding: 28px; border: 1.5px dashed rgba(226,182,90,0.5); border-radius: 20px; color: #8F8A84">{{t.songsEmpty}}</p>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; text-align: left; margin-bottom: 56px">
+<sc-for list="{{songs}}" as="sg" hint-placeholder-count="0">
+<article style="background: #141414; border: 1px solid #2A2928; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative; width: 100%; aspect-ratio: 1.22 / 1">
+<div class="vinyl-slide" style="transform: translateX({{sg.slide}})" aria-hidden="true"><div class="vinyl-big" style="animation-play-state: {{sg.spin}}"><span class="vinyl-big-label"></span></div></div>
+<div style="position: absolute; left: 0; top: 0; height: 100%; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; background: #1A1A1A; box-shadow: 8px 0 24px rgba(0,0,0,0.6); z-index: 1"><img loading="lazy" decoding="async" src="{{sg.cover}}" alt="" style="width: 100%; height: 100%; object-fit: {{sg.fit}}; object-position: 50% 30%; padding: {{sg.pad}}; box-sizing: border-box; display: block"></div>
+</div>
+<div><h3 style="margin: 0; font-size: 20px; font-weight: 700"><button type="button" onClick="{{sg.open}}" style="padding: 0; border: 0; background: transparent; color: #F2EDE4; font: inherit; text-align: left; cursor: pointer">{{sg.title}}</button></h3>
+<sc-if value="{{sg.hasSinger}}" hint-placeholder-val="{{ false }}"><p style="margin: 4px 0 0; font-size: 14px; color: #C9C4BC">{{t.songVoice}}: {{sg.singer}}</p></sc-if>
+<p style="margin: 2px 0 0; font-size: 13px; color: #8F8A84">{{t.songCredit}}</p></div>
+<audio src="{{sg.audio}}" controls="{{ true }}" preload="none" onPlay="{{sg.onPlay}}" onPause="{{sg.onPause}}" onEnded="{{sg.onPause}}" style="width: 100%"></audio>
+<button type="button" onClick="{{sg.open}}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 18px; border-radius: 999px; border: 1.5px solid rgba(226,182,90,0.7); background: transparent; color: #F2EDE4; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">{{t.songOpen}} →</button>
+</article>
+</sc-for>
+</div>
+<h3 style="margin: 0 0 28px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: {{gold}}">{{t.stepsH}}</h3>
+<ol style="position: relative; margin: 0 auto; padding: 0; list-style: none; max-width: 900px; display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 8px">
+<span aria-hidden="true" style="position: absolute; left: 8%; right: 8%; top: 26px; height: 1px; background: linear-gradient(90deg,rgba(226,182,90,0),rgba(226,182,90,0.6),rgba(226,182,90,0))"></span>
+<li style="flex: 1 1 120px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center"><span style="width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid {{gold}}; background: #0A0A0A; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"></path><path d="M10 21h4"></path><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z"></path></svg></span><span style="font-size: 14px; font-weight: 600; color: #F2EDE4">{{t.stepIdea}}</span></li><li style="flex: 1 1 120px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center"><span style="width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid {{gold}}; background: #0A0A0A; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg></span><span style="font-size: 14px; font-weight: 600; color: #F2EDE4">{{t.stepComp}}</span></li><li style="flex: 1 1 120px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center"><span style="width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid {{gold}}; background: #0A0A0A; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><path d="M12 18v4"></path></svg></span><span style="font-size: 14px; font-weight: 600; color: #F2EDE4">{{t.stepRep}}</span></li><li style="flex: 1 1 120px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center"><span style="width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid {{gold}}; background: #0A0A0A; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3z"></path><path d="M3 19a2 2 0 0 0 2 2h1v-6H3z"></path></svg></span><span style="font-size: 14px; font-weight: 600; color: #F2EDE4">{{t.stepRec}}</span></li><li style="flex: 1 1 120px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center"><span style="width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid {{gold}}; background: #0A0A0A; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg></span><span style="font-size: 14px; font-weight: 600; color: #F2EDE4">{{t.stepStage}}</span></li>
+</ol>
+</div>
+</section>
+
+<section id="palmares" style="background: #0A0A0A; border-top: 1px solid #242322">
+<div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px 88px; text-align: center">
+<h2 style="margin: 0 0 8px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15; color: #F2EDE4">{{t.palH}}</h2>
+<p style="margin: 0 auto 40px; max-width: 620px; color: #C9C4BC; font-size: 17px">{{t.palSub}}</p>
+<sc-if value="{{noAwards}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0 auto; max-width: 520px; padding: 28px; border: 1.5px dashed rgba(226,182,90,0.5); border-radius: 20px; color: #8F8A84">{{t.palEmpty}}</p>
+</sc-if>
+<sc-if value="{{hasAwards}}" hint-placeholder-val="{{ false }}">
+<div id="palmares-stats" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 56px; margin: 0 0 48px"><div style="min-width: 120px"><p style="margin: 0; font-size: clamp(2.4rem, 7vw, 3.4rem); font-weight: 800; line-height: 1; color: {{gold}}">{{stTotal}}</p><p style="margin: 8px 0 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9C4BC">{{lbTotal}}</p></div><div style="min-width: 120px"><p style="margin: 0; font-size: clamp(2.4rem, 7vw, 3.4rem); font-weight: 800; line-height: 1; color: {{gold}}">{{stFirst}}</p><p style="margin: 8px 0 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9C4BC">{{lbFirst}}</p></div><div style="min-width: 120px"><p style="margin: 0; font-size: clamp(2.4rem, 7vw, 3.4rem); font-weight: 800; line-height: 1; color: {{gold}}">{{stCountries}}</p><p style="margin: 8px 0 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9C4BC">{{lbCountries}}</p></div></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; text-align: left">
+<sc-for list="{{awardsTop}}" as="a" hint-placeholder-count="0">
+<article style="background: #141414; border: 1px solid #2A2928; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+<sc-if value="{{a.hasPhotos}}" hint-placeholder-val="{{ false }}">
+<div class="{{a.mos}}">
+<sc-for list="{{a.photos}}" as="ph" hint-placeholder-count="0"><img src="{{ph.src}}" alt="" loading="lazy"></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{a.noPhotos}}" hint-placeholder-val="{{ false }}">
+<div style="height: 120px; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 40%,#2A2418,#141414 70%)"><span style="width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0A0A0A; background: radial-gradient(circle at 35% 30%,#FFF1C2,#E2B65A 55%,#9C7420)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"></path></svg></span></div>
+</sc-if>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div><h3 style="margin: 0; font-size: 18px; line-height: 1.35; font-weight: 700; color: #F2EDE4">{{a.contest}}</h3>
+<p style="margin: 4px 0 0; color: #8F8A84; font-size: 13.5px">{{a.place}} · {{a.when}}</p></div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{a.winners}}" as="w" hint-placeholder-count="0">
+<li style="display: flex; align-items: flex-start; gap: 10px"><span style="flex: none; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0A0A0A; background: {{w.medalBg}}; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.35)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"></path></svg></span><span style="min-width: 0"><strong style="color: #F2EDE4">{{w.name}}</strong><br><span style="font-size: 13.5px; color: {{w.medalText}}">{{w.prize}}</span></span></li>
+</sc-for>
+</ul>
+<sc-if value="{{a.hasText}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; padding-top: 12px; border-top: 1px solid #242322; color: #C9C4BC; font-size: 14.5px; line-height: 1.6">{{a.text}}</p></sc-if>
+</div>
+</article>
+</sc-for>
+</div>
+<button type="button" onClick="{{goAwards}}" style="margin-top: 32px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 1.5px solid rgba(226,182,90,0.7); background: transparent; color: #F2EDE4; font: inherit; font-weight: 600; cursor: pointer">{{t.palAll}} →</button>
+</sc-if>
+</div>
+</section>
+
+<section id="recenzii" style="background: #0A0A0A; border-top: 1px solid #242322">
+<div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px 88px; text-align: center">
+<h2 style="margin: 0 0 6px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15; color: #F2EDE4">{{t.revH}}</h2>
+<p style="margin: 0 0 36px; color: #C9C4BC; font-size: 17px">{{t.revSub}}</p>
+<sc-if value="{{noReviews}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0 auto 32px; max-width: 520px; padding: 28px; border: 1.5px dashed rgba(226,182,90,0.5); border-radius: 20px; color: #8F8A84">{{t.revEmpty}}</p>
+</sc-if>
+<div style="max-width: 640px; margin: 0 auto; display: grid; text-align: left">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="0">
+<figure aria-hidden="{{r.hidden}}" style="grid-area: 1 / 1; opacity: {{r.op}}; visibility: {{r.vis}}; transition: opacity 0.7s ease, visibility 0.7s; margin: 0; background: #141414; border: 1px solid #2A2928; border-radius: 20px; padding: 24px; position: relative; display: flex; flex-direction: column; gap: 14px">
+<sc-if value="{{r.sample}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: 14px; right: 14px; padding: 3px 9px; border-radius: 999px; background: #B3122A; color: #FFFFFF; font-size: 11px; font-weight: 700; letter-spacing: 0.1em">{{t.revSample}}</span></sc-if>
+<div style="display: flex; align-items: center; gap: 12px">
+<sc-if value="{{r.hasPhoto}}" hint-placeholder-val="{{ false }}"><img loading="lazy" decoding="async" src="{{r.photo}}" alt="" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1.5px solid {{gold}}; background: #222222"></sc-if><sc-if value="{{r.noPhoto}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="flex: none; width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid {{gold}}; background: #2A2418; color: {{gold}}; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px">{{r.initials}}</span></sc-if>
+<figcaption style="min-width: 0"><p style="margin: 0; font-weight: 600; color: #F2EDE4">{{r.name}}</p><p style="margin: 2px 0 0; font-size: 13px; color: #8F8A84">{{r.source}}</p></figcaption>
+</div>
+<div style="display: flex; gap: 3px" aria-label="5/5"><svg width="16" height="16" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg></div>
+<blockquote style="margin: 0; color: #D8D2C8; font-size: 15.5px; line-height: 1.6">{{r.text}}</blockquote>
+</figure>
+</sc-for>
+</div>
+<sc-if value="{{manyReviews}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 22px; display: flex; align-items: center; justify-content: center; gap: 14px"><button type="button" onClick="{{revPrev}}" aria-label="{{t.prev}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(226,182,90,0.6); background: transparent; color: #F2EDE4; font-size: 22px; cursor: pointer">‹</button><div style="display: flex; gap: 8px"><sc-for list="{{revDots}}" as="d" hint-placeholder-count="0"><button type="button" onClick="{{d.go}}" aria-label="{{d.label}}" style="width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 0; background: {{d.bg}}; cursor: pointer"></button></sc-for></div><button type="button" onClick="{{revNext}}" aria-label="{{t.next}}" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(226,182,90,0.6); background: transparent; color: #F2EDE4; font-size: 22px; cursor: pointer">›</button></div>
+<button type="button" onClick="{{goReviews}}" style="margin-top: 18px; min-height: 44px; padding: 0 20px; border: 0; background: transparent; color: {{gold}}; font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">{{t.revAll}}</button>
+</sc-if>
+<a href="https://www.facebook.com/profile.php?id=100064056611677&amp;sk=reviews" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1.5px solid rgba(226,182,90,0.7); color: #F2EDE4; text-decoration: none; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.6-3.5h-3.1V7a.9.9 0 0 1 .9-.9H15z"></path></svg>{{t.revFb}}</a>
+</div>
+</section>
+<section id="intrebari" style="background: #0A0A0A; border-top: 1px solid #242322">
+<div style="max-width: 820px; margin: 0 auto; padding: 72px 24px 96px">
+<h2 style="margin: 0 0 32px; text-align: center; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15; color: #F2EDE4">{{t.faqH}}</h2>
+<div style="border-top: 1px solid rgba(226,182,90,0.35)">
+<sc-for list="{{faq}}" as="f" hint-placeholder-count="0">
+<div style="border-bottom: 1px solid rgba(226,182,90,0.35)">
+<button type="button" onClick="{{f.toggle}}" aria-expanded="{{f.expanded}}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 4px; border: 0; background: transparent; color: #F2EDE4; font: inherit; font-size: 17px; font-weight: 600; text-align: left; cursor: pointer">
+<span>{{f.q}}</span>
+<span aria-hidden="true" style="flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid {{gold}}; color: {{gold}}; display: flex; align-items: center; justify-content: center; font-size: 20px; line-height: 1; transform: rotate({{f.rot}}); transition: transform 0.25s">+</span>
+</button>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 0 48px 22px 4px; color: #C9C4BC; font-size: 15.5px; line-height: 1.6">{{f.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<div class="page-ov" style="display: {{pgAwards}}" role="dialog" aria-modal="true"><div class="page-bar"><button type="button" class="page-back" onClick="{{closePage}}">← {{t.back}}</button></div>
+<section style="max-width: 1180px; margin: 0 auto; padding: 24px 24px 96px; text-align: center">
+<h2 style="margin: 0 0 28px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15">{{t.palH}}</h2>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 32px"><sc-for list="{{awYears}}" as="y" hint-placeholder-count="0"><button type="button" onClick="{{y.pick}}" aria-pressed="{{y.on}}" style="min-height: 36px; padding: 0 16px; border-radius: 999px; border: 1px solid {{y.bd}}; background: {{y.bg}}; color: {{y.fg}}; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">{{y.label}}</button></sc-for></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; text-align: left">
+<sc-for list="{{awardsAll}}" as="a" hint-placeholder-count="0">
+<article style="background: #141414; border: 1px solid #2A2928; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+<sc-if value="{{a.hasPhotos}}" hint-placeholder-val="{{ false }}">
+<div class="{{a.mos}}">
+<sc-for list="{{a.photos}}" as="ph" hint-placeholder-count="0"><img src="{{ph.src}}" alt="" loading="lazy"></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{a.noPhotos}}" hint-placeholder-val="{{ false }}">
+<div style="height: 120px; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 40%,#2A2418,#141414 70%)"><span style="width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0A0A0A; background: radial-gradient(circle at 35% 30%,#FFF1C2,#E2B65A 55%,#9C7420)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"></path></svg></span></div>
+</sc-if>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div><h3 style="margin: 0; font-size: 18px; line-height: 1.35; font-weight: 700; color: #F2EDE4">{{a.contest}}</h3>
+<p style="margin: 4px 0 0; color: #8F8A84; font-size: 13.5px">{{a.place}} · {{a.when}}</p></div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{a.winners}}" as="w" hint-placeholder-count="0">
+<li style="display: flex; align-items: flex-start; gap: 10px"><span style="flex: none; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0A0A0A; background: {{w.medalBg}}; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.35)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"></path><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"></path></svg></span><span style="min-width: 0"><strong style="color: #F2EDE4">{{w.name}}</strong><br><span style="font-size: 13.5px; color: {{w.medalText}}">{{w.prize}}</span></span></li>
+</sc-for>
+</ul>
+<sc-if value="{{a.hasText}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; padding-top: 12px; border-top: 1px solid #242322; color: #C9C4BC; font-size: 14.5px; line-height: 1.6">{{a.text}}</p></sc-if>
+</div>
+</article>
+</sc-for>
+</div>
+</section>
+</div>
+<div class="page-ov" style="display: {{pgSong}}" role="dialog" aria-modal="true"><div class="page-bar"><button type="button" class="page-back" onClick="{{closePage}}">← {{t.back}}</button></div>
+<article style="max-width: 1100px; margin: 0 auto; padding: 16px 24px 96px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 320px; min-width: 0; max-width: 480px">
+<div style="position: relative; width: 100%; aspect-ratio: 1.22 / 1">
+<div class="vinyl-slide" style="transform: translateX({{sp.slide}})" aria-hidden="true"><div class="vinyl-big" style="animation-play-state: {{sp.spin}}"><span class="vinyl-big-label"></span></div></div>
+<div style="position: absolute; left: 0; top: 0; height: 100%; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; background: #1A1A1A; box-shadow: 8px 0 24px rgba(0,0,0,0.6); z-index: 1"><img loading="lazy" decoding="async" src="{{sp.cover}}" alt="" style="width: 100%; height: 100%; object-fit: {{sp.fit}}; object-position: 50% 30%; padding: {{sp.pad}}; box-sizing: border-box; display: block"></div>
+</div>
+<h2 style="margin: 22px 0 4px; font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800; color: #F2EDE4">{{sp.title}}</h2>
+<p style="margin: 0 0 16px; color: #C9C4BC">{{t.songVoice}}: {{sp.singer}}</p>
+<audio src="{{sp.audio}}" controls="{{ true }}" preload="none" onPlay="{{sp.onPlay}}" onPause="{{sp.onPause}}" onEnded="{{sp.onPause}}" style="width: 100%"></audio>
+<h3 style="margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: {{gold}}; margin-top: 32px">{{t.songCredits}}</h3>
+<dl style="margin: 0">
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid #242322"><dt style="color: #8F8A84">{{t.crMusic}}</dt><dd style="margin: 0; color: #F2EDE4; font-weight: 600; text-align: right">{{sp.music}}</dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid #242322"><dt style="color: #8F8A84">{{t.crLyrics}}</dt><dd style="margin: 0; color: #F2EDE4; font-weight: 600; text-align: right">{{sp.lyricsBy}}</dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid #242322"><dt style="color: #8F8A84">{{t.crVoice}}</dt><dd style="margin: 0; color: #F2EDE4; font-weight: 600; text-align: right">{{sp.singer}}</dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid #242322"><dt style="color: #8F8A84">{{t.crProd}}</dt><dd style="margin: 0; color: #F2EDE4; font-weight: 600; text-align: right">Art Room Production</dd></div>
+</dl>
+</div>
+<div style="flex: 999 1 380px; min-width: 0">
+<h3 style="margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: {{gold}}">{{t.songStory}}</h3>
+<p style="margin: 0 0 36px; color: #D8D2C8; font-size: 16.5px; line-height: 1.7; white-space: pre-line">{{sp.storyText}}</p>
+<h3 style="margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: {{gold}}">{{t.songLyrics}}</h3>
+<p style="margin: 0 0 36px; color: #F2EDE4; font-size: 16.5px; line-height: 1.8; white-space: pre-line; font-style: italic">{{sp.lyrics}}</p>
+<sc-if value="{{sp.hasStory}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-style: italic; color: #C9C4BC; font-size: 14.5px; line-height: 1.55">{{sp.story}}</p></sc-if>
+<div style="border-top: 1px solid #2A2928; padding-top: 12px">
+<button type="button" onClick="{{sp.toggleCm}}" aria-expanded="{{sp.cmExpanded}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 4px; border: 0; background: transparent; color: {{gold}}; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.6A8 8 0 1 1 21 12z"></path></svg>{{t.cmH}} ({{sp.cmCount}}) <span aria-hidden="true">{{sp.cmArrow}}</span></button>
+<sc-if value="{{sp.cmOpen}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 10px; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{sp.comments}}" as="c" hint-placeholder-count="0">
+<div style="display: flex; gap: 10px; align-items: flex-start">
+<span aria-hidden="true" style="flex: none; width: 34px; height: 34px; border-radius: 50%; background: #2A2418; border: 1px solid {{gold}}; color: {{gold}}; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700">{{c.initial}}</span>
+<div style="min-width: 0; flex: 1; background: #1C1C1C; border-radius: 4px 14px 14px 14px; padding: 8px 12px">
+<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px"><strong style="color: #F2EDE4">{{c.name}}</strong><span style="color: #8F8A84">· {{c.when}}</span><span style="padding: 1px 7px; border-radius: 999px; background: #B3122A; color: #FFFFFF; font-size: 10px; font-weight: 700; letter-spacing: 0.08em">{{t.revSample}}</span></p>
+<p style="margin: 3px 0 0; color: #D8D2C8; font-size: 14px; line-height: 1.45">{{c.text}}</p>
+</div>
+</div>
+</sc-for>
+<div style="display: flex; gap: 8px; align-items: center">
+<span aria-hidden="true" style="flex: none; width: 34px; height: 34px; border-radius: 50%; background: #1C1C1C; border: 1px dashed #4A4744"></span>
+<div style="flex: 1; min-height: 38px; display: flex; align-items: center; padding: 0 14px; border-radius: 999px; border: 1px solid #2E2C2A; color: #6E6A64; font-size: 13.5px">{{t.cmWrite}}</div>
+</div>
+<p style="margin: 0; font-size: 12px; color: #8F8A84">{{t.cmNote}}</p>
+</div>
+</sc-if>
+</div>
+</div>
+</article>
+</div>
+<div class="page-ov" style="display: {{pgReviews}}" role="dialog" aria-modal="true"><div class="page-bar"><button type="button" class="page-back" onClick="{{closePage}}">← {{t.back}}</button></div>
+<section style="max-width: 1180px; margin: 0 auto; padding: 24px 24px 96px">
+<h2 style="margin: 0 0 32px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15">{{t.revH}}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="0">
+<figure style="margin: 0; background: #141414; border: 1px solid #2A2928; border-radius: 20px; padding: 24px; position: relative; display: flex; flex-direction: column; gap: 14px">
+<sc-if value="{{r.sample}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: 14px; right: 14px; padding: 3px 9px; border-radius: 999px; background: #B3122A; color: #FFFFFF; font-size: 11px; font-weight: 700; letter-spacing: 0.1em">{{t.revSample}}</span></sc-if>
+<div style="display: flex; align-items: center; gap: 12px">
+<sc-if value="{{r.hasPhoto}}" hint-placeholder-val="{{ false }}"><img loading="lazy" decoding="async" src="{{r.photo}}" alt="" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1.5px solid {{gold}}; background: #222222"></sc-if><sc-if value="{{r.noPhoto}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="flex: none; width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid {{gold}}; background: #2A2418; color: {{gold}}; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px">{{r.initials}}</span></sc-if>
+<figcaption style="min-width: 0"><p style="margin: 0; font-weight: 600; color: #F2EDE4">{{r.name}}</p><p style="margin: 2px 0 0; font-size: 13px; color: #8F8A84">{{r.source}}</p></figcaption>
+</div>
+<div style="display: flex; gap: 3px" aria-label="5/5"><svg width="16" height="16" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="{{gold}}" aria-hidden="true"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"></path></svg></div>
+<blockquote style="margin: 0; color: #D8D2C8; font-size: 15.5px; line-height: 1.6">{{r.text}}</blockquote>
+</figure>
+</sc-for>
+</div>
+</section>
+</div>
+<div class="page-ov" style="display: {{pgVideo}}" role="dialog" aria-modal="true"><div class="page-bar"><button type="button" class="page-back" onClick="{{closePage}}">← {{t.back}}</button></div>
+<section id="video" style="max-width: 1180px; margin: 0 auto; padding: 24px 24px 96px">
+<h2 style="margin: 0 0 12px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15">{{t.vidH}}</h2>
+<sc-if value="{{canUpload}}" hint-placeholder-val="{{ false }}">
+<div style="margin: 0 0 32px; padding: 20px; border: 1.5px dashed rgba(226,182,90,0.6); border-radius: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px">
+<label style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; background: {{gold}}; color: #0A0A0A; font-weight: 700; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"></path><path d="m6 10 6-6 6 6"></path><path d="M4 20h16"></path></svg>
+{{t.vidUpload}}
+<input type="file" accept="video/mp4,video/webm" onChange="{{onPickVideo}}" disabled="{{uploading}}" style="position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden">
+</label>
+<span style="color: #C9C4BC; font-size: 14px">{{vidStatus}}</span>
+</div>
+</sc-if>
+<sc-if value="{{noVideos}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0 0 32px; color: #8F8A84">{{t.vidEmpty}}</p>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<sc-for list="{{videos}}" as="v" hint-placeholder-count="0">
+<div style="background: #141414; border: 1px solid #2A2928; border-radius: 16px; overflow: hidden">
+<video src="{{v.src}}" controls="{{ true }}" playsInline="{{ true }}" preload="metadata" style="display: block; width: 100%; aspect-ratio: 16 / 9; background: #000000"></video>
+<sc-if value="{{canUpload}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; justify-content: flex-end; padding: 8px 10px">
+<button type="button" onClick="{{v.del}}" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(232,65,79,0.7); background: transparent; color: #F2B8BE; font: inherit; font-size: 13px; cursor: pointer">{{v.delLabel}}</button>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<a href="https://www.youtube.com/@artroomproduction6974" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1.5px solid rgba(226,182,90,0.7); color: #F2EDE4; text-decoration: none; font-weight: 600">▶ {{t.vidMore}}</a>
+</section>
+</div>
+<div class="page-ov" style="display: {{pgSubs}}" role="dialog" aria-modal="true"><div class="page-bar"><button type="button" class="page-back" onClick="{{closePage}}">← {{t.back}}</button></div><section id="abonamente" style="background: #0A0A0A; border-top: 1px solid #242322">
+<div style="max-width: 1180px; margin: 0 auto; padding: 96px 24px; text-align: center">
+<h2 style="margin: 0 0 10px; font-weight: 800; font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.05; letter-spacing: 0.04em; text-transform: uppercase; color: {{gold}}">{{t.subsH}}</h2>
+<p style="margin: 0 0 52px; color: #C9C4BC; font-size: 17px">{{t.subsP}}</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; align-items: stretch"><div style="position: relative; background: #161616; border: 1px solid #2A2928; box-shadow: none; border-radius: 24px; padding: 34px 26px 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center"><span style="width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid {{gold}}; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><path d="M12 18v4"></path></svg></span><h3 style="margin: 0; font-weight: 800; font-size: 30px; letter-spacing: 0.06em; text-transform: uppercase">{{t.ab1name}}</h3><p style="margin: 0; padding: 8px 18px; border-radius: 8px; background: linear-gradient(90deg,#B8893A,#E2B65A,#B8893A); color: #0A0A0A; font-weight: 800; font-size: 20px">{{t.ab1price}}</p><p style="margin: 0; font-style: italic; font-size: 18px; color: {{gold}}">{{t.ab1role}}</p><ul style="margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; text-align: left; font-size: 15px; line-height: 1.45; color: #D8D2C8; width: 100%"><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab1b1}}</span></li><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab1b2}}</span></li><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab1b3}}</span></li><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab1b4}}</span></li></ul><p style="margin: auto 0 0; padding-top: 16px; border-top: 1px solid rgba(226,182,90,0.3); width: 100%; font-style: italic; font-size: 15px; line-height: 1.5; color: #C9C4BC">{{t.ab1note}}</p></div><div style="position: relative; background: linear-gradient(180deg,#1E1A12,#121212); border: 2px solid {{gold}}; box-shadow: 0 0 40px rgba(226,182,90,0.25); border-radius: 24px; padding: 34px 26px 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center"><svg width="34" height="22" viewBox="0 0 34 22" fill="{{gold}}" aria-hidden="true" style="position: absolute; top: -13px; left: 50%; transform: translateX(-50%)"><path d="M2 20 L4 6 L11 12 L17 2 L23 12 L30 6 L32 20 Z"></path></svg><span style="width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid {{gold}}; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"></rect><path d="M5 10v1a7 7 0 0 0 14 0v-1"></path><path d="M12 18v4"></path></svg></span><h3 style="margin: 0; font-weight: 800; font-size: 30px; letter-spacing: 0.06em; text-transform: uppercase">{{t.ab2name}}</h3><p style="margin: 0; padding: 8px 18px; border-radius: 8px; background: linear-gradient(90deg,#B8893A,#E2B65A,#B8893A); color: #0A0A0A; font-weight: 800; font-size: 20px">{{t.ab2price}}</p><p style="margin: 0; font-style: italic; font-size: 18px; color: {{gold}}">{{t.ab2role}}</p><ul style="margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; text-align: left; font-size: 15px; line-height: 1.45; color: #D8D2C8; width: 100%"><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab2b1}}</span></li><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab2b2}}</span></li><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab2b3}}</span></li><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab2b4}}</span></li></ul><p style="margin: auto 0 0; padding-top: 16px; border-top: 1px solid rgba(226,182,90,0.3); width: 100%; font-style: italic; font-size: 15px; line-height: 1.5; color: #C9C4BC">{{t.ab2note}}</p></div><div style="position: relative; background: #161616; border: 1px solid #2A2928; box-shadow: none; border-radius: 24px; padding: 34px 26px 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center"><span style="width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid {{gold}}; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M7 5v8M12 5v8M17 5v8M2 13h20"></path></svg></span><h3 style="margin: 0; font-weight: 800; font-size: 30px; letter-spacing: 0.06em; text-transform: uppercase">{{t.ab3name}}</h3><p style="margin: 0; padding: 8px 18px; border-radius: 8px; background: linear-gradient(90deg,#B8893A,#E2B65A,#B8893A); color: #0A0A0A; font-weight: 800; font-size: 20px">{{t.ab3price}}</p><p style="margin: 0; font-style: italic; font-size: 18px; color: {{gold}}">{{t.ab3role}}</p><ul style="margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; text-align: left; font-size: 15px; line-height: 1.45; color: #D8D2C8; width: 100%"><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab3b1}}</span></li><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab3b2}}</span></li><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab3b3}}</span></li><li style="display: flex; gap: 10px; align-items: flex-start"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="10"></circle><path d="m7.5 12.5 3 3 6-6.5"></path></svg><span>{{t.ab3b4}}</span></li></ul><p style="margin: auto 0 0; padding-top: 16px; border-top: 1px solid rgba(226,182,90,0.3); width: 100%; font-style: italic; font-size: 15px; line-height: 1.5; color: #C9C4BC">{{t.ab3note}}</p></div></div>
+<div style="margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 32px; font-size: 15px; color: #D8D2C8"><span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>{{t.abCity}}</span><span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"></path><path d="M6 11v5c3 2 9 2 12 0v-5"></path></svg>{{t.abCoach}}</span><button type="button" onClick="{{openPhone}}" style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 4px; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; text-decoration: underline; text-decoration-color: rgba(226,182,90,0.6); text-underline-offset: 4px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"></rect><path d="M8 3v4M16 3v4M3.5 10h17"></path></svg>{{t.abEval}}</button></div>
+<button type="button" onClick="{{openPhone}}" style="display: inline-flex; align-items: center; margin-top: 28px; min-height: 50px; padding: 0 28px; border-radius: 999px; background: {{red}}; color: #FFFFFF; font-weight: 600; text-decoration: none; border: 0; font: inherit; font-weight: 600; cursor: pointer">{{t.cta}}</button>
+<p style="margin: 34px 0 0; font-family: &#39;Great Vibes&#39;, cursive; font-size: 40px; line-height: 1.1; color: {{gold}}">Your voice. Your dream. Your stage.</p>
+</div>
+</section></div>
+
+<div class="page-ov" style="display: {{pgTeam}}" role="dialog" aria-modal="true"><div class="page-bar"><button type="button" class="page-back" onClick="{{closePage}}">← {{t.back}}</button></div><section id="profesori" style="max-width: 1180px; margin: 0 auto; padding: 112px 24px">
+<h2 style="margin: 0 0 48px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15">{{t.teachH}}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px">
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<img loading="lazy" decoding="async" src="a/423f35e881d72e9e64e89f7b5e9fc246.jpg" alt="Vitalie Negruța" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 20%; border-radius: 24px; filter: grayscale(1)">
+<h3 style="margin: 0; font-weight: 600; font-size: 20px">Vitalie Negruța</h3>
+<p style="margin: 0; color: #C9C4BC">{{t.vrole}}</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="aspect-ratio: 1 / 1; border-radius: 24px; border: 1.5px dashed #4A4744; background: #141414; display: flex; align-items: center; justify-content: center; color: #8F8A84; font-size: 15px">{{t.photo}}</div>
+<h3 style="margin: 0; font-weight: 600; font-size: 20px">{{t.tname}}</h3>
+<p style="margin: 0; color: #C9C4BC">{{t.tdesc}}</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="aspect-ratio: 1 / 1; border-radius: 24px; border: 1.5px dashed #4A4744; background: #141414; display: flex; align-items: center; justify-content: center; color: #8F8A84; font-size: 15px">{{t.photo}}</div>
+<h3 style="margin: 0; font-weight: 600; font-size: 20px">{{t.tname}}</h3>
+<p style="margin: 0; color: #C9C4BC">{{t.tdesc}}</p>
+</div>
+
+</div>
+</section></div>
+
+<div class="page-ov" style="display: {{pgGallery}}" role="dialog" aria-modal="true"><div class="page-bar"><button type="button" class="page-back" onClick="{{closePage}}">← {{t.back}}</button></div><section id="galerie" style="background: #111111; border-top: 1px solid #242322">
+<div style="max-width: 1180px; margin: 0 auto; padding: 112px 24px">
+<h2 style="margin: 0 0 48px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15">{{t.galH}}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<sc-for list="{{gallery}}" as="g" hint-placeholder-count="6">
+<button type="button" onClick="{{g.open}}" aria-label="{{t.openPhoto}} {{g.n}}" style="padding: 0; border: 0; background: #161616; border-radius: 16px; overflow: hidden; cursor: zoom-in; display: block; aspect-ratio: 3 / 2"><img src="{{g.src}}" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: {{g.pos}}; display: block"></button>
+</sc-for>
+</div>
+</div>
+</section></div>
+
+<div class="page-ov" style="display: {{pgConcerts}}" role="dialog" aria-modal="true"><div class="page-bar"><button type="button" class="page-back" onClick="{{closePage}}">← {{t.back}}</button></div><section id="concerte" style="background: #111111; border-top: 1px solid #242322">
+<div style="max-width: 1180px; margin: 0 auto; padding: 96px 24px">
+<h2 style="margin: 0 0 16px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15">{{t.concH}}</h2>
+<p style="margin: 0 0 24px; color: #C9C4BC; font-size: 18px; max-width: 640px">{{t.concP}}</p>
+<sc-for list="{{concerts}}" as="c" hint-placeholder-count="0"><article class="conc-card">
+<div class="conc-grid"><sc-for list="{{c.photos}}" as="ph" hint-placeholder-count="0"><button type="button" class="conc-ph {{ph.cls}}" onClick="{{ph.open}}" aria-label="Mărește poza"><img src="{{ph.src}}" alt="" loading="lazy" style="object-position: {{ph.pos}}"></button></sc-for></div>
+<div class="conc-body"><p class="conc-meta"><span class="conc-date">{{c.when}}</span> · {{c.place}}</p><h3 class="conc-title">{{c.title}}</h3><p class="conc-text">{{c.text}}</p></div>
+</article></sc-for>
+</div>
+</section></div>
+
+<div class="page-ov" style="display: {{pgRules}}" role="dialog" aria-modal="true"><div class="page-bar"><button type="button" class="page-back" onClick="{{closePage}}">← {{t.back}}</button></div><section id="regulament" style="background: #0A0A0A; border-top: 1px solid #242322">
+<div style="max-width: 760px; margin: 0 auto; padding: 96px 24px; text-align: center">
+<p style="margin: 0 0 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #8F8A84">{{t.rulesH}}</p>
+<h2 style="margin: 0 0 36px; font-weight: 800; font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.05; letter-spacing: 0.01em; text-transform: uppercase; color: {{gold}}">{{t.rulesTitle}}</h2>
+<ol style="margin: 0; padding: 0; list-style: none; text-align: left; border-bottom: 1px solid rgba(226,182,90,0.35)"><li style="display: flex; gap: 18px; align-items: center; padding: 22px 0; border-top: 1px solid rgba(226,182,90,0.35)"><span style="flex: none; width: 64px; height: 64px; border-radius: 50%; border: 1.5px solid {{gold}}; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"></rect><path d="M8 3v4M16 3v4M3.5 10h17"></path><path d="M11 13.5l1.5-1v5"></path></svg></span><span style="flex: none; font-size: 44px; font-weight: 800; line-height: 1; color: {{gold}}; width: 42px">1.</span><div style="min-width: 0"><p style="margin: 0; font-size: 18px; font-weight: 600; color: #F2EDE4">{{t.r1h}}</p><p style="margin: 4px 0 0; color: #C9C4BC; font-size: 15.5px; line-height: 1.55">{{t.r1d}}</p></div></li><li style="display: flex; gap: 18px; align-items: center; padding: 22px 0; border-top: 1px solid rgba(226,182,90,0.35)"><span style="flex: none; width: 64px; height: 64px; border-radius: 50%; border: 1.5px solid {{gold}}; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="12" r="8"></circle><path d="M11 7.5V12l3 2"></path><circle cx="18" cy="18" r="3.6" fill="#0A0A0A"></circle><path d="M16.6 16.6l2.8 2.8M19.4 16.6l-2.8 2.8"></path></svg></span><span style="flex: none; font-size: 44px; font-weight: 800; line-height: 1; color: {{gold}}; width: 42px">2.</span><div style="min-width: 0"><p style="margin: 0; font-size: 18px; font-weight: 600; color: #F2EDE4">{{t.r2h}}</p><p style="margin: 4px 0 0; color: #C9C4BC; font-size: 15.5px; line-height: 1.55">{{t.r2d}}</p></div></li><li style="display: flex; gap: 18px; align-items: center; padding: 22px 0; border-top: 1px solid rgba(226,182,90,0.35)"><span style="flex: none; width: 64px; height: 64px; border-radius: 50%; border: 1.5px solid {{gold}}; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="4" width="12" height="8" rx="1.5"></rect><path d="M9 7h12"></path><path d="M2.5 14.5h4l3.5 2.5h5a1.5 1.5 0 0 1 0 3H9.5"></path><path d="M2.5 13v8"></path></svg></span><span style="flex: none; font-size: 44px; font-weight: 800; line-height: 1; color: {{gold}}; width: 42px">3.</span><div style="min-width: 0"><p style="margin: 0; font-size: 18px; font-weight: 600; color: #F2EDE4">{{t.r3h}}</p><p style="margin: 4px 0 0; color: #C9C4BC; font-size: 15.5px; line-height: 1.55">{{t.r3d}}</p></div></li><li style="display: flex; gap: 18px; align-items: center; padding: 22px 0; border-top: 1px solid rgba(226,182,90,0.35)"><span style="flex: none; width: 64px; height: 64px; border-radius: 50%; border: 1.5px solid {{gold}}; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="6" r="2.6"></circle><path d="M4 21v-6a4 4 0 0 1 8 0v6"></path><circle cx="15" cy="11" r="2"></circle><path d="M12.5 21v-3.5a2.5 2.5 0 0 1 5 0V21"></path><path d="M18.5 5.6c.7-.9 2.2-.6 2.2.6 0 1.1-2.2 2.4-2.2 2.4s-2.2-1.3-2.2-2.4c0-1.2 1.5-1.5 2.2-.6z"></path></svg></span><span style="flex: none; font-size: 44px; font-weight: 800; line-height: 1; color: {{gold}}; width: 42px">4.</span><div style="min-width: 0"><p style="margin: 0; font-size: 18px; font-weight: 600; color: #F2EDE4">{{t.r4h}}</p><p style="margin: 4px 0 0; color: #C9C4BC; font-size: 15.5px; line-height: 1.55">{{t.r4d}}</p></div></li></ol>
+<p style="margin: 36px 0 6px; font-family: &#39;Great Vibes&#39;, cursive; font-size: 46px; line-height: 1.1; color: {{gold}}">More than singing ♡</p>
+<p style="margin: 0; font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase; color: #8F8A84">Your voice. Your dream. Your stage.</p>
+</div>
+</section></div>
+
+<div style="display: none"><section class="bg-scena" aria-label="Lecție de canto">
+<div style="max-width: 1180px; margin: 0 auto; padding: 160px 24px; text-align: center">
+<p style="margin: 0; font-family: &#39;Great Vibes&#39;, cursive; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.15; color: #FFFFFF">{{t.band2}}</p>
+</div>
+</section></div>
+
+<div style="display: none"><section id="contact" style="background: {{red}}; color: #FFFFFF; border-top: 4px solid {{gold}}">
+<div style="max-width: 1180px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div style="flex: 999 1 480px; min-width: 0">
+<h2 style="margin: 0 0 16px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(3rem, 6vw, 4.4rem); line-height: 1.1">{{t.contH}}</h2>
+<p style="margin: 0; max-width: 520px; font-size: 19px">{{t.contP}}</p>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px; font-size: 18px">
+<a href="https://www.facebook.com/profile.php?id=100064056611677" style="display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 0 22px; border-radius: 16px; background: #0A0A0A; color: #F2EDE4; text-decoration: none; font-weight: 600">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+Facebook: Art-Room Production
+</a>
+<a href="https://www.youtube.com/@artroomproduction6974" style="display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 0 22px; border-radius: 16px; background: #0A0A0A; color: #F2EDE4; text-decoration: none; font-weight: 600">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="m10 9 5 3-5 3z"></path></svg>
+{{t.yt}}
+</a>
+<a href="https://www.instagram.com/art_room_production/" style="display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 0 22px; border-radius: 16px; background: #0A0A0A; color: #F2EDE4; text-decoration: none; font-weight: 600">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6"></circle></svg>
+Instagram: art_room_production
+</a>
+<a href="https://www.tiktok.com/@artroomproduction" style="display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 0 22px; border-radius: 16px; background: #0A0A0A; color: #F2EDE4; text-decoration: none; font-weight: 600">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"></path><path d="M14 3c.5 2.5 2.5 4.5 5 4.5"></path></svg>
+TikTok: @artroomproduction
+</a>
+<a href="tel:+40753641814" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 0 22px; border-radius: 16px; background: #0A0A0A; color: #F2EDE4; text-decoration: none; font-weight: 600">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
+{{t.phone}}
+</a>
+<div style="display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 0 22px; border-radius: 16px; border: 1.5px solid #FFFFFF; font-weight: 600">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+{{t.addr}}
+</div>
+</div>
+</div>
+</section></div>
+
+<div style="display: none"><footer style="max-width: 1180px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; color: #8F8A84">
+<span style="display: flex; align-items: center; gap: 12px"><img loading="lazy" decoding="async" src="a/7b9a05122bb940ed01dea2e7a3954eaa.png" alt="" style="width: 36px; height: 36px; object-fit: contain">© 2026 Art-Room Production</span>
+<span>{{t.footer}}</span>
+</footer></div>
+
+<sc-if value="{{lbOpen}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="{{t.galH}}" onClick="{{closeLb}}" style="position: fixed; inset: 0; z-index: 90; background: rgba(5,5,5,0.94); display: flex; align-items: center; justify-content: center; padding: 56px 12px; box-sizing: border-box">
+<img src="{{lbSrc}}" alt="" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,0.7)">
+<button type="button" onClick="{{closeLb}}" aria-label="{{t.close}}" style="position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(242,237,228,0.4); background: rgba(10,10,10,0.6); color: #F2EDE4; font-size: 22px; line-height: 1; cursor: pointer">×</button>
+<button type="button" onClick="{{prevLb}}" aria-label="{{t.prev}}" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(242,237,228,0.4); background: rgba(10,10,10,0.6); color: #F2EDE4; font-size: 22px; cursor: pointer">‹</button>
+<button type="button" onClick="{{nextLb}}" aria-label="{{t.next}}" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(242,237,228,0.4); background: rgba(10,10,10,0.6); color: #F2EDE4; font-size: 22px; cursor: pointer">›</button>
+<p style="position: absolute; bottom: 14px; left: 0; right: 0; margin: 0; text-align: center; color: #C9C4BC; font-size: 14px">{{lbCount}}</p>
+</div>
+</sc-if>
+<sc-if value="{{phoneOpen}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="{{t.callUs}}" onClick="{{closePhone}}" style="position: fixed; inset: 0; z-index: 95; background: rgba(5,5,5,0.82); display: flex; align-items: center; justify-content: center; padding: 24px">
+<div style="position: relative; background: #121212; border: 1.5px solid {{gold}}; border-radius: 22px; padding: 40px 36px 34px; box-shadow: 0 0 50px rgba(226,182,90,0.25); text-align: center">
+<button type="button" onClick="{{closePhone}}" aria-label="{{t.close}}" style="position: absolute; top: 8px; right: 8px; width: 40px; height: 40px; border: 0; border-radius: 50%; background: transparent; color: #C9C4BC; font-size: 22px; cursor: pointer">×</button>
+<a href="tel:+40753641814" target="_blank" rel="noopener" aria-label="{{t.callUs}}" style="display: inline-flex; align-items: center; gap: 14px; color: #F2EDE4; text-decoration: none; font-size: clamp(1.5rem, 6vw, 2.1rem); font-weight: 700; letter-spacing: 0.02em; white-space: nowrap">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{gold}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
++40 (753) 641 814</a>
+</div>
+</div>
+</sc-if>
+<a class="wa-btn" href="{{waHref}}" target="_blank" rel="noopener" aria-label="{{t.waLabel}}" title="{{t.waLabel}}">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.5-4.4a8.4 8.4 0 1 1 15.5-4.5z"></path><path d="M9 8.6c.3-.6.6-.6.9-.6h.6c.2 0 .4 0 .6.5l.7 1.7c.1.2.1.4 0 .6l-.5.7c-.1.2-.1.4 0 .5.5.9 1.3 1.7 2.2 2.2.2.1.4.1.5 0l.7-.6c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.3.4.5v.6c0 .4-.2.8-.6 1-.7.4-1.6.5-2.4.2-2.4-.8-4.3-2.7-5.1-5.1-.3-.8-.2-1.7.2-2.4z" fill="#0A0A0A" stroke="none"></path></svg>
+<span class="wa-tip">WhatsApp</span>
+</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"intro":{"editor":"boolean","default":true},"gold":{"editor":"color","default":"#E2B65A","options":["#E2B65A","#D4A437","#F0D08A","#F2EDE4"]},"red":{"editor":"color","default":"#B3122A","options":["#B3122A","#8E0F1F","#C8102E","#7A0A16"]},"$preview":{"width":1280,"height":5200}}'>
+const I18N = {"ro": {"heroSub": "Îți susținem pașii în dezvoltarea talentului prin cursuri profesionale de canto pop și pian.", "about1": "Școala a pornit în perioada pandemiei, când concertele s-au oprit, dar muzica nu. Am început cu lecții individuale, față în față, și am crescut pas cu pas, din recomandările elevilor și ale părinților.", "about2": "Astăzi, Art-Room Production este o școală de canto pop cu aproximativ 50 de elevi și o echipă de trei profesori. Fondatorul școlii este interpret, compozitor și pianist, iar întreaga lui viață este legată de muzică.", "about3": "Pe lângă lecții, înregistrăm piesele elevilor și compunem muzică originală, ca fiecare voce să ajungă să fie auzită.", "c3d": "Înregistrăm piesele dorite, cu masterizare și prelucrare audio la un nivel înalt de strălucire și acuratețe.", "s4d": "Masterizare și prelucrare audio la un nivel înalt de strălucire și acuratețe.", "offerSub": "Îți susținem pașii în dezvoltarea talentului prin cursuri profesionale de canto pop și pian.", "s2d": "Bazele teoriei și armoniei muzicale · simțul ritmic · tehnica instrumentală și emisia sonoră", "heroLead": "ArtRoom îți oferă calitate și profesionalism, într-un cadru primitor!", "band2": "Calitate și profesionalism, într-un cadru primitor", "contP": "Scrie-ne sau sună-ne și stabilim prima lecție. Te așteptăm!", "s1t": "Perfecționare vocală prin tehnici moderne ale muzicii pop", "s1d": "Emisii și efecte vocale · respirația corectă · terapie vocală", "c4d": "Compoziție muzicală originală a pieselor, la calitate superioară.", "c2a": "Auzul armonic și bazele teoriei și armoniei muzicale", "aboutH": "O școală născută din dragostea pentru scenă", "band1": "Canto pop și pian, în ritmul fiecărui elev", "c2c": "Tehnica instrumentală și emisia sonoră", "s3t": "Compoziție muzicală originală", "s3d": "Piese compuse la calitate superioară.", "s4t": "Înregistrarea pieselor dorite", "tdesc": "[Câteva cuvinte despre profesor]", "vrole": "Fondator · mentor · interpret · compozitor", "s2t": "Pian și auz armonic", "cta": "Înscrie-te la o evaluare", "c1a": "Emisii și efecte vocale", "contH": "Hai să cântăm împreună!", "footer": "Canto pop și pian · Craiova", "teachH": "Profesorii noștri", "yt": "YouTube: canalul nostru", "phone": "+40 (753) 641 814", "addr": "Craiova, [ADRESA]", "price": "[PREȚ] lei / lecție", "tname": "[NUME PROFESOR]", "galH": "Din viața școlii", "c1b": "Respirația corectă", "c1c": "Terapie vocală", "c2b": "Simțul ritmic", "weDo": "Ne implicăm în", "offerH": "Ce oferim", "c3h": "Înregistrări", "wait": "Te așteptăm!", "c1h": "Canto pop", "c2h": "Pian", "c4h": "Compoziție", "price2": "[PREȚ]", "photo": "[FOTO]", "stars": "5 stele", "skip": "Sari peste", "slogan": "Unde vocea prinde contur, iar visul devine… ecou!", "navTeam": "Echipa", "navConcerts": "Concerte", "navSubs": "Abonamente", "navRules": "Regulament", "concH": "Concerte", "concP": "Concertele și spectacolele elevilor noștri, unde fiecare voce urcă pe scenă.", "concPh": "[ADAUGĂ: următoarele concerte — dată, loc, poze sau video]", "subsH": "Abonamente", "subsP": "Antrenament vocal și muzical la nivel profesionist", "subName": "[NUME ABONAMENT]", "subLessons": "[NR.] lecții / lună", "subPrice": "[PREȚ] lei / lună", "rulesH": "Regulament", "rulesPh": "[ADAUGĂ: regulamentul școlii — programări, anulări, plăți, recuperări]", "openPhoto": "Deschide fotografia", "close": "Închide", "prev": "Fotografia anterioară", "next": "Fotografia următoare", "rulesTitle": "Important de știut!", "r1h": "Toate modulele sunt lunare", "r1d": "O oră pe săptămână pentru fiecare activitate: 4 sau 5 ore pe lună, în funcție de câte săptămâni are luna.", "r2h": "Orele neefectuate nu se recuperează", "r2d": "Te rugăm să-ți planifici participarea la fiecare oră.", "r3h": "Plata se face lunar", "r3d": "Plata modulului ales se efectuează în aceeași zi calendaristică în care a fost început modulul.", "r4h": "Reducere de 15% pentru familii", "r4d": "Al doilea abonament beneficiază de o reducere de 15%, în cazul părinte–copil sau frați.", "ab1name": "Voice", "ab1price": "600 lei / lună", "ab1role": "profesor de canto", "ab1b1": "Bază tehnică vocală solidă", "ab1b2": "Respirație, susținere și intonație corectă", "ab1b3": "Dicție, articulare și extinderea registrului", "ab1b4": "Dezvoltare vocală etapizată, atent ghidată", "ab1note": "Pentru construirea unei voci sănătoase, stabile și bine educate.", "ab2name": "Voice", "ab2price": "1000 lei / lună", "ab2role": "vocal coach", "ab2b1": "Nivel avansat de rafinare artistică și identitate vocală", "ab2b2": "Interpretare, stilistică muzicală și expresivitate scenică", "ab2b3": "Tehnica microfonului, livrarea mesajului și controlul emoției", "ab2b4": "Pregătire profesionistă pentru studio, audiții, concerte și industrie", "ab2note": "Pentru artistul care nu vrea doar să cânte corect, ci să impresioneze, să convingă și să fie memorabil.", "ab3name": "Pian", "ab3price": "500 lei / lună", "ab3role": "curs individual", "ab3b1": "Acompaniament propriu și independență muzicală", "ab3b2": "Teorie muzicală aplicată", "ab3b3": "Note, ritm, armonie și coordonare practică", "ab3b4": "Lucru aplicat pe piese și obiective personale", "ab3note": "Pentru cei care vor să își înțeleagă și să își exprime muzica complet.", "abCity": "Craiova", "abCoach": "Coaching profesional", "abEval": "Programează o evaluare – 100 lei", "priceCanto": "de la 600 lei / lună", "pricePian": "500 lei / lună", "callUs": "Sună la +40 753 641 814", "mFoto": "Foto", "mVideo": "Video", "back": "Înapoi", "vidH": "Video", "vidUpload": "Încarcă video", "vidHint": "MP4 sau WebM, până la 20 MB", "vidUploading": "Se încarcă…", "vidDone": "Încărcat!", "vidEmpty": "Încă nu sunt video-uri.", "vidTooBig": "Fișierul e prea mare (maxim 20 MB). Micșorează-l sau pune-l pe YouTube.", "vidType": "Doar fișiere MP4 sau WebM.", "vidErr": "Încărcarea n-a reușit. Încearcă din nou.", "vidDel": "Șterge", "vidDelSure": "Sigur? Apasă din nou", "vidMore": "Mai multe pe YouTube", "revH": "Recenzii", "revSub": "Ce spun elevii și părinții noștri", "revEmpty": "Aici vor apărea recenziile voastre. Ai fost la noi? Lasă-ne o recenzie pe Facebook!", "revFb": "Lasă o recenzie pe Facebook", "revSample": "EXEMPLU", "revAll": "Vezi toate recenziile", "waLabel": "Scrie-ne pe WhatsApp", "waMsg": "Bună ziua! Aș dori informații despre cursurile Art Room Production.", "faqH": "Întrebări frecvente", "songsH": "Cântece născute aici", "songsSub": "Piese compuse de la zero pentru elevii noștri și înregistrate în studioul Art Room Production.", "songsEmpty": "În curând, aici vor apărea primele noastre piese originale.", "songVoice": "Voce", "songCredit": "Muzica: Vitalie Negruța · Producție: Art Room Production", "stepsH": "De la idee la scenă", "stepIdea": "Ideea", "stepComp": "Compoziția", "stepRep": "Repetițiile", "stepRec": "Înregistrarea", "stepStage": "Scena", "cmH": "Comentarii", "cmWrite": "Scrie un comentariu…", "cmNote": "Exemplu de aspect. Pe site-ul final, comentariile se vor lăsa cu contul de Facebook.", "songOpen": "Deschide piesa", "songStory": "Povestea piesei", "songLyrics": "Versuri", "songCredits": "Autori", "crMusic": "Muzica", "crLyrics": "Versuri", "crVoice": "Voce", "crProd": "Producție", "fillIn": "[COMPLETEAZĂ]", "palH": "Palmares", "palSub": "Premiile câștigate de elevii noștri la concursuri naționale și internaționale.", "palEmpty": "În curând, aici vor apărea premiile elevilor noștri.", "palTotal": "premii", "palFirst": "locuri I și Mari Premii", "palCountries": "țări", "palAll": "Vezi tot palmaresul", "palAllYears": "Toate", "palTotal1": "premiu", "palFirst1": "loc I sau Mare Premiu", "palCountries1": "țară"}, "en": {"heroSub": "We support every step of your talent’s growth through professional pop singing and piano courses.", "about1": "The school began during the pandemic, when concerts stopped but the music didn’t. We started with one-to-one, in-person lessons and grew step by step, through recommendations from students and parents.", "about2": "Today, Art-Room Production is a pop singing school with about 50 students and a team of three teachers. Its founder is a performer, composer and pianist whose whole life is tied to music.", "about3": "Beyond lessons, we record our students’ songs and compose original music, so that every voice gets heard.", "c3d": "We record the songs you want, with mastering and audio processing of exceptional brilliance and precision.", "s4d": "Mastering and audio processing with exceptional brilliance and precision.", "offerSub": "We support every step of your talent’s growth through professional pop singing and piano courses.", "s2d": "Music theory and harmony basics · sense of rhythm · instrumental technique and tone production", "heroLead": "ArtRoom offers you quality and professionalism in a welcoming setting!", "band2": "Quality and professionalism in a welcoming setting", "contP": "Message or call us and we’ll set up your first lesson. We’re waiting for you!", "s1t": "Vocal training with modern pop techniques", "s1d": "Vocal production and effects · correct breathing · voice therapy", "c4d": "Original music composition, to the highest quality.", "c2a": "Harmonic ear and the basics of music theory and harmony", "aboutH": "A school born from a love of the stage", "band1": "Pop singing and piano, at each student’s own pace", "c2c": "Instrumental technique and tone production", "s3t": "Original music composition", "s3d": "Songs composed to the highest quality.", "s4t": "Recording your songs", "tdesc": "[A few words about the teacher]", "vrole": "Founder · mentor · performer · composer", "s2t": "Piano and harmonic ear", "cta": "Book an assessment", "c1a": "Vocal production and effects", "contH": "Let’s sing together!", "footer": "Pop singing and piano · Craiova", "teachH": "Our teachers", "yt": "YouTube: our channel", "phone": "+40 (753) 641 814", "addr": "Craiova, [ADDRESS]", "price": "[PRICE] lei / lesson", "tname": "[TEACHER NAME]", "galH": "School life", "c1b": "Correct breathing", "c1c": "Voice therapy", "c2b": "Sense of rhythm", "weDo": "What we do", "offerH": "What we offer", "c3h": "Recordings", "wait": "We’re waiting for you!", "c1h": "Pop singing", "c2h": "Piano", "c4h": "Composition", "price2": "[PRICE]", "photo": "[PHOTO]", "stars": "5 stars", "skip": "Skip", "slogan": "Where the voice takes shape, and the dream becomes… an echo!", "navTeam": "Team", "navConcerts": "Concerts", "navSubs": "Memberships", "navRules": "Rules", "concH": "Concerts", "concP": "Our students’ concerts and shows, where every voice takes the stage.", "concPh": "[ADD: upcoming concerts — date, venue, photos or video]", "subsH": "Memberships", "subsP": "Professional-level vocal and musical training", "subName": "[MEMBERSHIP NAME]", "subLessons": "[NO.] lessons / month", "subPrice": "[PRICE] lei / month", "rulesH": "School rules", "rulesPh": "[ADD: school rules — bookings, cancellations, payments, make-up lessons]", "openPhoto": "Open photo", "close": "Close", "prev": "Previous photo", "next": "Next photo", "rulesTitle": "Good to know!", "r1h": "All courses are monthly", "r1d": "One hour per week for each activity: 4 or 5 hours a month, depending on how many weeks the month has.", "r2h": "Missed lessons are not made up", "r2d": "Please plan to attend every lesson.", "r3h": "Payment is monthly", "r3d": "The chosen course is paid on the same calendar day of the month on which it started.", "r4h": "15% family discount", "r4d": "The second membership gets a 15% discount for parent–child or siblings.", "ab1name": "Voice", "ab1price": "600 lei / month", "ab1role": "singing teacher", "ab1b1": "A solid vocal technique foundation", "ab1b2": "Breathing, support and accurate intonation", "ab1b3": "Diction, articulation and range extension", "ab1b4": "Step-by-step, carefully guided vocal growth", "ab1note": "For building a healthy, stable, well-trained voice.", "ab2name": "Voice", "ab2price": "1000 lei / month", "ab2role": "vocal coach", "ab2b1": "Advanced artistic refinement and vocal identity", "ab2b2": "Interpretation, musical style and stage expression", "ab2b3": "Microphone technique, delivery and emotional control", "ab2b4": "Professional preparation for studio, auditions, concerts and the industry", "ab2note": "For the artist who wants not just to sing correctly, but to impress, convince and be memorable.", "ab3name": "Piano", "ab3price": "500 lei / month", "ab3role": "one-to-one course", "ab3b1": "Self-accompaniment and musical independence", "ab3b2": "Applied music theory", "ab3b3": "Notes, rhythm, harmony and practical coordination", "ab3b4": "Hands-on work on songs and personal goals", "ab3note": "For those who want to fully understand and express their music.", "abCity": "Craiova", "abCoach": "Professional coaching", "abEval": "Book an assessment – 100 lei", "priceCanto": "from 600 lei / month", "pricePian": "500 lei / month", "callUs": "Call +40 753 641 814", "mFoto": "Photo", "mVideo": "Video", "back": "Back", "vidH": "Video", "vidUpload": "Upload video", "vidHint": "MP4 or WebM, up to 20 MB", "vidUploading": "Uploading…", "vidDone": "Uploaded!", "vidEmpty": "No videos yet.", "vidTooBig": "The file is too large (max 20 MB). Make it smaller or put it on YouTube.", "vidType": "MP4 or WebM files only.", "vidErr": "Upload failed. Please try again.", "vidDel": "Delete", "vidDelSure": "Sure? Tap again", "vidMore": "More on YouTube", "revH": "Reviews", "revSub": "What our students and parents say", "revEmpty": "Your reviews will appear here. Been to our school? Leave us a review on Facebook!", "revFb": "Leave a review on Facebook", "revSample": "SAMPLE", "revAll": "See all reviews", "waLabel": "Message us on WhatsApp", "waMsg": "Hello! I would like information about the Art Room Production courses.", "faqH": "Frequently asked questions", "songsH": "Songs born here", "songsSub": "Songs composed from scratch for our students and recorded in the Art Room Production studio.", "songsEmpty": "Our first original songs will appear here soon.", "songVoice": "Vocals", "songCredit": "Music: Vitalie Negruța · Production: Art Room Production", "stepsH": "From idea to stage", "stepIdea": "The idea", "stepComp": "Composition", "stepRep": "Rehearsals", "stepRec": "Recording", "stepStage": "The stage", "cmH": "Comments", "cmWrite": "Write a comment…", "cmNote": "Layout preview. On the final site, comments will be posted with a Facebook account.", "songOpen": "Open song", "songStory": "The story", "songLyrics": "Lyrics", "songCredits": "Credits", "crMusic": "Music", "crLyrics": "Lyrics", "crVoice": "Vocals", "crProd": "Production", "fillIn": "[TO BE ADDED]", "palH": "Awards", "palSub": "Prizes our students have won at national and international competitions.", "palEmpty": "Our students’ awards will appear here soon.", "palTotal": "awards", "palFirst": "first places & grand prizes", "palCountries": "countries", "palAll": "See all awards", "palAllYears": "All", "palTotal1": "award", "palFirst1": "first place or grand prize", "palCountries1": "country"}};
+const CONCERTS = [{"date": "2026-05-01", "photos": [{"src": "a/ffdc3ceb7e7f88e6a67818d19dd84c9d.jpg", "cls": "big", "pos": "50% 30%"}, {"src": "a/b93e424799431fefcb818e1f332a5f0d.jpg", "cls": "", "pos": "50% 20%"}, {"src": "a/79c7d971b1e0f0a2e304edb6218406c5.jpg", "cls": "", "pos": "70% 30%"}, {"src": "a/8bc4492d714660c4a0760b1fc07758f8.jpg", "cls": "", "pos": "60% 20%"}, {"src": "a/0f2fe069fd38bf730bf5f2ea71beaaea.jpg", "cls": "", "pos": "25% 25%"}], "ro": {"title": "Balul caritabil KIWANIS Craiova Teen Hub · echipa Art Room", "place": "Liceul SRB, Craiova", "when": "1 mai 2026", "text": "Știți cât de bine ne-am simțit? O seară plină de zâmbete, dans, muzică și… caritate! Toate la un loc ne-au făcut inimile să zburde! Balul caritabil KIWANIS Craiova Teen Hub este dedicat susținerii unui spațiu creat pentru tineri, unde aceștia își pot dezvolta ideile, abilitățile și inițiativele pentru comunitate. Muzica, dansul și implicarea civică s-au împletit perfect pentru un scop comun: susținerea generației viitoare! Mulțumim Liceului SRB Craiova pentru invitație și Kiwanis Craiova pentru inițiativa de a susține educația și promovarea tinerelor talente."}, "en": {"title": "KIWANIS Craiova Teen Hub Charity Ball · the Art Room team", "place": "SRB High School, Craiova", "when": "1 May 2026", "text": "Can you tell how much fun we had? An evening full of smiles, dancing, music and… charity! All together, they made our hearts soar! The KIWANIS Craiova Teen Hub Charity Ball supports a space created for young people, where they can develop their ideas, skills and community initiatives. Music, dance and civic engagement came together for one shared goal: supporting the next generation! Thank you to SRB High School Craiova for the invitation and to Kiwanis Craiova for supporting education and young talent."}}, {"date": "2026-04-30", "photos": [{"src": "a/c6a046b7e4bf5f9ad851dd13cea0205b.jpg", "cls": "big", "pos": "50% 20%"}, {"src": "a/b20c5bcec8c32d3f7d012fe62e4eab94.jpg", "cls": "", "pos": "50% 15%"}, {"src": "a/c20dcb55836c16508ab39b023495251b.jpg", "cls": "", "pos": "65% 30%"}, {"src": "a/f069172caf396fd935ec8518fbb24b44.jpg", "cls": "", "pos": "50% 15%"}, {"src": "a/41d08cce715eb8282b3dc82f00b5b578.jpg", "cls": "", "pos": "40% 15%"}, {"src": "a/c0218023f7d93f4a6c2fa1e2bfa4d13c.jpg", "cls": "odd", "pos": "50% 15%"}, {"src": "a/c6fd9af9c6ecba23aa4f80db4323cb4f.jpg", "cls": "wide", "pos": "50% 50%"}], "ro": {"title": "Balul caritabil KIWANIS Craiova Teen Hub · elevii pe scenă", "place": "Liceul SRB, Craiova", "when": "30 aprilie 2026", "text": "O seară cu adevărat magică, așa cum am simțit-o alături de oameni frumoși, cu sufletul deschis, cu gândul îndreptat spre viitorul tinerilor din Craiova. Mulțumim Liceului SRB Craiova pentru invitație și Kiwanis Craiova pentru inițiativa de a susține educația și promovarea tinerelor talente, în cadrul acestui eveniment exclusiv, deosebit!"}, "en": {"title": "KIWANIS Craiova Teen Hub Charity Ball · our students on stage", "place": "SRB High School, Craiova", "when": "30 April 2026", "text": "A truly magical evening, spent among wonderful, open-hearted people with their minds set on the future of Craiova’s young people. Thank you to SRB High School Craiova for the invitation and to Kiwanis Craiova for supporting education and young talent at this exclusive, special event!"}}];
+const AWARDS = [{"year": 2026, "date": "2026-10-10", "country": "RO", "photos": ["a/f9cf8f3c4c3d7c896f3d861f3b0c324d.jpg", "a/3ae44c918aa4f2b36bb229eeaa0a03c5.jpg"], "ro": {"contest": "VoiceUp Festival, ediția a 5-a", "place": "București, România", "when": "10 octombrie 2026", "text": "Două voci, trei trofee! Rebeca și Ianna cuceresc Trofeul Secțiunii „Muzică ușoară internațională”, iar Ianna adaugă palmaresului său și Trofeul Ambasadorilor VoiceUp Festival."}, "en": {"contest": "VoiceUp Festival, 5th edition", "place": "Bucharest, Romania", "when": "10 October 2026", "text": "Two voices, three trophies! Rebeca and Ianna both win the “International Pop Music” Section Trophy, and Ianna also takes home the VoiceUp Festival Ambassadors’ Trophy."}, "winners": [{"name": "Rebeca Cârstea", "medal": "grand", "ro": {"prize": "Trofeul Secțiunii „Muzică ușoară internațională”"}, "en": {"prize": "Section Trophy – “International Pop Music”"}}, {"name": "Ianna-Victoria Gulie", "medal": "grand", "ro": {"prize": "Trofeul Secțiunii „Muzică ușoară internațională”"}, "en": {"prize": "Section Trophy – “International Pop Music”"}}, {"name": "Ianna-Victoria Gulie", "medal": "other", "ro": {"prize": "Trofeul Ambasadorilor VoiceUp Festival"}, "en": {"prize": "VoiceUp Festival Ambassadors’ Trophy"}}]}, {"year": 2026, "date": "2026-09-26", "country": "RO", "photos": ["a/953b08aeddcc0dcdb2c14ca9003a4fe2.jpg", "a/55879b0725a69fcafbb72d84123e1fed.jpg", "a/a59e07113105b805d8ea8525c991188b.jpg"], "ro": {"contest": "Concursul Internațional de Canto „Vocea Domnului de Rouă”, ediția a II-a", "place": "Dobrosloveni, România", "when": "26 septembrie 2026", "text": "Trofeul concursului ajunge în brațele Alesiei-Maria Gligor, care a cucerit scena prin voce și emoție, iar Premiul I se bucură de timbrul și talentul Nataliei Cîtu. După ce Sarah Bogdan aducea acasă același Trofeu anul trecut, la prima ediție, bucuria continuă!"}, "en": {"contest": "“Vocea Domnului de Rouă” International Singing Competition, 2nd edition", "place": "Dobrosloveni, Romania", "when": "26 September 2026", "text": "The competition trophy goes to Alesia-Maria Gligor, who won the stage with her voice and emotion, and First Prize goes to Natalia Cîtu for her tone and talent. After Sarah Bogdan brought home the same Trophy last year at the first edition, the joy continues!"}, "winners": [{"name": "Alesia-Maria Gligor", "medal": "grand", "ro": {"prize": "Trofeul Concursului"}, "en": {"prize": "Competition Trophy"}}, {"name": "Natalia Patricia Cîtu", "medal": "gold", "ro": {"prize": "Premiul I"}, "en": {"prize": "First Prize"}}]}, {"year": 2026, "date": "2026-04-18", "country": "RO", "photos": ["a/00246c87e505f843b2c7ab31467ef09b.jpg", "a/5ef1b6f9b54da91d5de846eb794b6052.jpg"], "ro": {"contest": "Festivalul Național de Interpretare „Glasul Valahiei”", "place": "România", "when": "aprilie 2026", "text": "Festivalul Național de Interpretare „Glasul Valahiei” îi înmânează Iannei Gulie Trofeul la categoria „10 ani”, repertoriu internațional! Felicitări cu pupici și îmbrățișări!"}, "en": {"contest": "“Glasul Valahiei” National Performance Festival", "place": "Romania", "when": "April 2026", "text": "The “Glasul Valahiei” National Performance Festival hands Ianna Gulie the Trophy in the “10 years” category, international repertoire! Congratulations, with kisses and hugs!"}, "winners": [{"name": "Ianna-Victoria Gulie", "medal": "grand", "ro": {"prize": "Trofeul · categoria „10 ani”, repertoriu internațional"}, "en": {"prize": "Trophy · “10 years” category, international repertoire"}}]}, {"year": 2026, "date": "2026-02-28", "country": "RO", "layout": "stack", "photos": ["a/fd99189d1514dcb02fd7f737dd65465c.jpg", "a/f8b336560c09958b835abba78bfb4e9a.jpg"], "ro": {"contest": "Concursul Internațional „Mihai Traistariu caută o vedetă” · Finala", "place": "România", "when": "februarie 2026", "text": "Trofeul pentru Natalia Cîtu și Premiul I pentru Elena Rahut! Multă muncă, dăruire, pasiune și dragoste pentru muzică au fost ingredientele acestui succes. Felicitări maxime!"}, "en": {"contest": "“Mihai Traistariu caută o vedetă” International Competition · Final", "place": "Romania", "when": "February 2026", "text": "The Trophy for Natalia Cîtu and First Prize for Elena Rahut! Hard work, dedication, passion and love for music were the ingredients of this success. Huge congratulations!"}, "winners": [{"name": "Natalia Patricia Cîtu", "medal": "grand", "ro": {"prize": "Trofeul · Finala"}, "en": {"prize": "Trophy · Final"}}, {"name": "Elena Rahut", "medal": "gold", "ro": {"prize": "Premiul I · Finala"}, "en": {"prize": "First Prize · Final"}}]}, {"year": 2026, "date": "2026-02-18", "country": "RO", "photos": ["a/b899b0b6afef84e456d5441b5554081f.jpg"], "ro": {"contest": "Festivalul Național „Mărțișorul de Poveste”", "place": "România", "when": "februarie 2026", "text": "Festivalul Național „Mărțișorul de Poveste” îi pictează Nataliei Ghiță un zâmbet dulce și curajos, oferindu-i Premiul I la categoria Muzică Internațională! Felicitări cu mii de pupici și îmbrățișări!"}, "en": {"contest": "“Mărțișorul de Poveste” National Festival", "place": "Romania", "when": "February 2026", "text": "The “Mărțișorul de Poveste” National Festival paints a sweet, brave smile on Natalia Ghiță’s face, awarding her First Prize in the International Music category! Congratulations, with a thousand kisses and hugs!"}, "winners": [{"name": "Natalia Ghiță", "medal": "gold", "ro": {"prize": "Premiul I · Muzică Internațională"}, "en": {"prize": "First Prize · International Music"}}]}, {"year": 2025, "date": "2025", "country": "RO", "photos": [], "ro": {"contest": "Concursul Internațional de Canto „Vocea Domnului de Rouă”, ediția I", "place": "Dobrosloveni, România", "when": "2025", "text": ""}, "en": {"contest": "“Vocea Domnului de Rouă” International Singing Competition, 1st edition", "place": "Dobrosloveni, Romania", "when": "2025", "text": ""}, "winners": [{"name": "Sarah Bogdan", "medal": "grand", "ro": {"prize": "Trofeul Concursului"}, "en": {"prize": "Competition Trophy"}}]}];
+const SONG_COMMENTS_SAMPLE = [{"initial": "M", "ro": {"name": "Mama Ana", "when": "acum 2 zile", "text": "Ce voce frumoasă! Bravo, ne-ai făcut pielea de găină! 👏"}, "en": {"name": "Ana’s mum", "when": "2 days ago", "text": "What a beautiful voice! Bravo, you gave us goosebumps! 👏"}}, {"initial": "D", "ro": {"name": "Dan", "when": "acum o săptămână", "text": "Piesa asta nu-mi mai iese din cap. Abia aștept următoarea!"}, "en": {"name": "Dan", "when": "a week ago", "text": "I can’t get this song out of my head. Can’t wait for the next one!"}}];
+const SONGS = [{"title": "Million", "singer": "Natalia Cîtu", "cover": "a/391dcace9146a7caaae28121d2f1427b.jpg", "audio": "a/ad7c20bf489457e32d71d19469c872f9.mp4", "ro": {"story": ""}, "en": {"story": ""}, "music": "Vitalie Negruța", "lyricsBy": "", "lyrics": ""}, {"title": "Sing It", "singer": "Elena Rahut", "cover": "a/95a3c1311e0f98f2d94e3ac544d80e86.jpg", "audio": "a/e8bb05eaa6dbb90160094c82cd59d2b0.mp4", "ro": {"story": ""}, "en": {"story": ""}, "music": "Vitalie Negruța", "lyricsBy": "", "lyrics": ""}];
+const FAQ = [{"ro": {"q": "De la ce vârstă se poate începe?", "a": "[COMPLETEAZĂ: vârsta minimă]. Lecțiile sunt potrivite pentru copii, adolescenți și adulți."}, "en": {"q": "From what age can you start?", "a": "[FILL IN: minimum age]. Lessons suit children, teenagers and adults."}}, {"ro": {"q": "Trebuie să știu note sau să am experiență?", "a": "[COMPLETEAZĂ]"}, "en": {"q": "Do I need to read music or have experience?", "a": "[FILL IN]"}}, {"ro": {"q": "Lecțiile sunt individuale?", "a": "Da. Fiecare lecție se desfășoară unu la unu, doar elevul și profesorul."}, "en": {"q": "Are lessons one-to-one?", "a": "Yes. Every lesson is one-to-one: just the student and the teacher."}}, {"ro": {"q": "Cât durează o lecție și cât de des sunt?", "a": "O oră pe săptămână pentru fiecare activitate, adică 4 sau 5 ore pe lună, în funcție de câte săptămâni are luna."}, "en": {"q": "How long is a lesson and how often?", "a": "One hour per week for each activity: 4 or 5 hours a month, depending on how many weeks the month has."}}, {"ro": {"q": "Ce este evaluarea și cât costă?", "a": "Evaluarea costă 100 lei. [COMPLETEAZĂ: ce se întâmplă la evaluare și cât durează]"}, "en": {"q": "What is the assessment and how much is it?", "a": "The assessment costs 100 lei. [FILL IN: what happens and how long it takes]"}}, {"ro": {"q": "Ce se întâmplă dacă lipsesc la o oră?", "a": "Orele neefectuate nu se recuperează, așa că te rugăm să-ți planifici participarea la fiecare oră."}, "en": {"q": "What if I miss a lesson?", "a": "Missed lessons are not made up, so please plan to attend every lesson."}}, {"ro": {"q": "Cum se face plata?", "a": "Plata se face lunar, în aceeași zi calendaristică în care a început modulul. [COMPLETEAZĂ: numerar, card sau transfer]"}, "en": {"q": "How do I pay?", "a": "Payment is monthly, on the same calendar day the course started. [FILL IN: cash, card or transfer]"}}, {"ro": {"q": "Există reduceri?", "a": "Da. Pentru familii, al doilea abonament are o reducere de 15% (părinte–copil sau frați)."}, "en": {"q": "Are there discounts?", "a": "Yes. For families, the second membership gets 15% off (parent–child or siblings)."}}, {"ro": {"q": "Unde vă aflați?", "a": "În Craiova, [COMPLETEAZĂ: adresa]."}, "en": {"q": "Where are you?", "a": "In Craiova, [FILL IN: address]."}}];
+const REVIEWS = [{"sample": true, "initials": "P", "ro": {"name": "Părinte de elevă", "source": "Facebook", "text": "Fiica mea vine cu drag la fiecare lecție. În câteva luni a prins curaj să cânte pe scenă, iar profesorii sunt răbdători și atenți la fiecare detaliu."}, "en": {"name": "Parent of a student", "source": "Facebook", "text": "My daughter loves every lesson. In a few months she found the courage to sing on stage, and the teachers are patient and attentive to every detail."}}, {"sample": true, "initials": "E", "ro": {"name": "Elevă, 16 ani", "source": "Google", "text": "Am învățat să respir corect și să-mi folosesc vocea fără să obosesc. Cel mai frumos a fost când mi-am înregistrat prima piesă în studio!"}, "en": {"name": "Student, 16", "source": "Google", "text": "I learned to breathe correctly and use my voice without tiring. The best moment was recording my first song in the studio!"}}, {"sample": true, "initials": "A", "ro": {"name": "Cursant adult", "source": "Facebook", "text": "Am început canto la peste 30 de ani și nu regret nicio clipă. Atmosferă caldă, profesionalism și multă muzică bună."}, "en": {"name": "Adult student", "source": "Facebook", "text": "I started singing lessons in my thirties and don’t regret a moment. Warm atmosphere, professionalism and lots of good music."}}];
+const PHOTOS = [{"src": "a/be1ea931e1f486b9fa302bb8fd16ac0e.jpg", "pos": "52% 30%"}, {"src": "a/470bb91a3a142706a3db2033b44d6771.jpg", "pos": "55% 25%"}, {"src": "a/c91b5416a32ff861f06b6a67cb959bc4.jpg", "pos": "38% 28%"}, {"src": "a/6ba277e9c76446b231f6c560faa39d8e.jpg", "pos": "58% 35%"}, {"src": "a/826c04eaf17f2a6b83ef1bd0dcf0839c.jpg", "pos": "50% 25%"}, {"src": "a/541805bb1d6a6ed0c9289b62f6e18433.jpg", "pos": "45% 22%"}, {"src": "a/0ca03c9e60f508af67349882629c77d3.jpg", "pos": "50% 22%"}, {"src": "a/3ed980324002616a5d5459c6a40295fc.jpg", "pos": "52% 15%"}, {"src": "a/646911ef078090ddf6c179b77ca3d1d9.jpg", "pos": "38% 30%"}, {"src": "a/25e1f77b9876dc9ba0ee2a259e39ad2d.jpg", "pos": "50% 50%"}, {"src": "a/c1e1e3726d0c74d5dd517fc4c0876e8d.jpg", "pos": "52% 22%"}, {"src": "a/347fad54096cf84adf78fec780b64576.jpg", "pos": "72% 22%"}, {"src": "a/66ac722fbdfd76fcb3cc8ee5c94c202a.jpg", "pos": "55% 35%"}, {"src": "a/2b517aba2172ea05732de08943559727.jpg", "pos": "60% 25%"}, {"src": "a/a0a2c0b650b7966a387df55c4cae9d69.jpg", "pos": "45% 22%"}, {"src": "a/0c3731a94906491a2064541ad4630f9d.jpg", "pos": "45% 30%"}, {"src": "a/8ee820c7c986c051212cd59c351637a8.jpg", "pos": "60% 35%"}, {"src": "a/322443a50ae8f1d02e76b5a8cc442260.jpg", "pos": "55% 42%"}, {"src": "a/292dadf5732c877756901a4db5ca08f6.jpg", "pos": "55% 28%"}, {"src": "a/d5de33ede99cb1d146736f48c199f83b.jpg", "pos": "40% 35%"}, {"src": "a/6485f8d6dfdc290d4ab3dfd4a2cd3242.jpg", "pos": "50% 25%"}];
+const LOGO_PATHS = [[[106,146],[105,151],[106,154],[113,159],[118,160],[128,157],[135,150],[139,140],[142,111]],[[141,110],[134,110],[126,114],[119,121],[118,127]],[[143,104],[143,95],[144,94],[145,78],[146,77],[146,67],[149,55],[156,51]],[[157,51],[159,53],[161,68],[167,92],[167,98]],[[168,99],[175,113],[181,120],[185,120],[190,116],[194,96],[195,71]],[[196,70],[210,69]],[[211,70],[211,98],[216,105],[218,106],[225,103],[227,101],[231,91],[238,87]],[[239,87],[243,93],[252,92],[261,83],[264,75]],[[266,60],[276,56],[288,54]],[[305,66],[298,72],[296,77],[296,81],[302,89],[314,89],[318,87],[326,79],[337,54]],[[337,53],[344,31],[352,12],[352,6]],[[352,5],[349,3],[339,3],[322,9],[315,16],[309,28],[310,36],[314,40]],[[338,54],[340,56],[351,57]],[[352,57],[354,55],[359,55],[364,53],[370,49],[374,44],[380,30],[379,20],[373,12],[362,6],[353,5]],[[352,58],[353,63],[356,66],[360,75],[361,81],[367,89],[377,90],[386,85],[391,84]],[[392,84],[394,91],[397,94],[407,94],[412,92],[421,82],[422,77]],[[422,76],[418,75],[414,69],[413,56]],[[412,55],[406,57],[397,67],[394,73],[392,83]],[[425,76],[429,64],[429,54],[426,51],[418,51],[413,54]],[[425,76],[426,77],[441,77],[443,79]],[[443,80],[436,96],[437,104],[441,108],[450,108],[461,103],[466,99],[468,94]],[[468,94],[462,89],[459,84],[459,73],[458,72]],[[458,71],[463,67],[473,67],[477,70],[478,73],[477,74],[477,81],[472,92]],[[472,94],[473,95],[488,95],[492,99]],[[493,99],[494,100],[501,100],[510,96],[519,95],[522,98],[522,101],[519,110]],[[519,110],[522,112],[536,109],[539,110],[542,113],[541,119],[522,140],[520,145],[521,150],[524,152],[532,152],[544,148]],[[519,110],[514,113],[493,136],[491,136]],[[475,122],[470,123]],[[475,122],[491,103],[492,100]],[[493,99],[500,87]],[[501,86],[507,85]],[[457,71],[453,72],[444,79]],[[259,32],[249,37],[238,39]],[[237,39],[236,38],[236,27],[238,20],[241,17]],[[236,41],[228,42],[223,45]],[[237,42],[237,65],[238,66],[239,86]],[[212,69],[215,63],[217,62]],[[194,70],[191,66],[191,61]],[[157,50],[159,39],[163,35]],[[166,99],[164,101],[160,101],[153,104],[144,105]],[[165,185],[160,195],[156,199],[147,204]],[[191,210],[191,205],[195,194],[204,176],[215,162],[218,156],[237,137],[261,122],[279,115],[282,115],[295,110],[305,109],[306,108],[330,107]],[[336,150],[324,150],[315,154],[305,162],[300,172],[296,175],[295,174],[292,175],[290,173],[291,169],[294,166]],[[294,166],[308,156]],[[311,152],[299,157],[294,161],[292,161],[278,176],[278,178]],[[287,171],[287,175],[279,180],[278,185],[280,186],[288,182],[293,182],[294,183]],[[294,185],[290,190],[273,192],[267,197],[268,200],[286,197],[289,201],[286,203],[273,204],[265,207],[260,213],[262,216],[265,214],[278,210],[281,210],[283,213],[278,219],[271,221],[266,221],[263,223]],[[258,231],[272,227],[275,227],[277,229],[271,236],[262,235],[259,237],[254,238],[250,242],[250,245],[251,246],[256,245]],[[257,245],[260,243],[268,242],[270,244],[270,246],[266,250],[259,251],[248,257]],[[247,258],[244,262],[244,265],[242,269],[241,282],[251,305],[258,311],[266,315],[279,319],[282,318]],[[279,312],[285,318],[288,319],[301,319],[302,320]],[[303,317],[291,308]],[[293,313],[290,312],[286,308],[285,303],[283,300],[282,279],[285,270],[281,265],[279,266],[277,273],[273,278],[274,279],[272,287]],[[272,287],[277,304]],[[277,304],[286,315],[288,316],[289,315]],[[278,309],[276,310],[273,307],[272,302],[267,294],[266,280],[268,272],[266,270]],[[266,265],[260,271],[258,277],[258,286],[262,298],[268,309],[272,313],[276,314]],[[265,311],[259,305],[253,291],[251,272]],[[254,277],[255,274],[253,271],[254,267],[251,266],[248,269],[246,274],[246,285],[249,294],[256,305]],[[237,288],[229,285],[220,285],[205,292],[197,298]],[[196,299],[187,308],[183,314],[176,328],[170,347],[171,358],[170,359],[170,372],[171,373],[171,380],[173,390],[178,401],[179,406],[183,412]],[[197,423],[190,415],[179,394],[175,376],[175,370],[177,367],[177,361],[175,357]],[[175,356],[176,355],[175,354],[175,345],[177,342],[178,334],[180,331],[182,323],[190,310],[199,301]],[[199,301],[211,292],[221,288],[229,288]],[[215,284],[205,285],[195,288],[186,295]],[[186,295],[176,304],[165,323],[158,352],[158,372],[161,386],[163,390]],[[169,397],[167,395],[166,390],[164,387],[162,378],[161,353],[166,348],[166,343],[170,331],[173,327],[175,320],[178,317],[181,311]],[[177,313],[173,318],[170,327],[168,329]],[[154,332],[155,325],[159,315]],[[162,307],[166,301],[174,293],[185,288],[192,282],[191,281]],[[191,281],[190,280],[174,289],[166,296],[155,311],[148,326],[145,337],[144,349],[143,350],[144,360]],[[150,362],[150,351]],[[151,349],[151,343],[150,342],[152,340],[153,334]],[[146,349],[146,356],[149,369]],[[155,379],[154,364],[153,363],[153,350],[155,345],[157,330],[160,323],[160,320],[164,313],[163,310],[166,306]],[[188,297],[198,290],[209,287]],[[206,277],[202,277],[193,272],[193,266],[196,258]],[[197,257],[199,259],[196,269],[205,275],[208,275]],[[212,273],[213,277],[219,277],[220,276]],[[216,254],[219,251],[221,244],[224,239],[225,228],[224,227]],[[218,233],[220,238],[218,240],[215,240],[207,236],[204,233],[205,228]],[[204,217],[202,216],[199,219],[200,223],[199,224],[199,229],[193,233],[183,234]],[[197,220],[195,224],[187,231],[185,229],[188,221],[192,218],[197,217]],[[205,214],[195,214],[187,216],[181,229],[181,237],[182,238],[193,238],[197,237],[203,240],[209,241],[211,243],[217,245],[216,249],[214,251]],[[201,253],[212,254],[214,256],[212,258],[201,256]],[[192,255],[192,260],[189,267],[189,270],[186,273],[185,272],[181,274],[175,274],[173,271],[174,270],[174,264],[177,254],[179,252],[187,250],[195,250],[196,251],[194,253],[182,254],[180,256],[177,267]],[[177,270],[179,270],[183,267],[189,259]],[[152,251],[150,255],[145,260],[126,274]],[[128,269],[144,257]],[[194,208],[198,195],[207,179]],[[208,177],[216,166]],[[222,163],[217,168],[216,172],[214,174]],[[214,178],[214,180],[212,182],[203,202],[201,209],[202,210]],[[204,210],[206,202],[216,180],[227,165],[250,142],[272,130],[283,127],[286,125],[290,125],[294,123],[308,120],[332,119],[353,123],[376,131],[393,141],[409,156],[423,177],[430,193],[430,199],[433,208],[433,219],[434,220],[432,235]],[[434,234],[436,230],[435,227],[436,226],[436,215],[437,214],[436,213],[435,199],[433,194],[433,188],[430,184],[428,178]],[[426,175],[422,168],[418,164]],[[418,164],[409,151],[393,137],[377,127],[374,127],[372,125],[363,122],[340,117],[328,116],[327,117],[308,117],[279,124],[257,134],[247,141],[234,153],[220,169],[217,175],[214,178]],[[227,153],[229,155],[235,148],[235,145],[243,137],[249,133]],[[265,124],[280,118],[307,111],[333,110],[334,111],[344,111],[345,112],[356,112],[369,115],[395,126],[410,137],[422,149]],[[422,150],[433,165],[443,187],[443,194],[445,197],[446,209],[447,210],[446,228]],[[446,228],[445,229],[445,234],[446,235],[449,234],[448,230]],[[448,228],[450,219],[450,209],[449,208],[447,190],[437,166],[424,148]],[[424,148],[405,129],[388,119],[381,117]],[[418,133],[430,143],[442,156],[449,167],[455,180],[460,194],[462,203],[462,210],[463,211],[462,237]],[[460,236],[459,235],[460,222],[459,221],[459,215],[460,214],[459,213],[459,204],[454,186],[449,175],[440,160],[419,137]],[[410,146],[415,151],[419,158]],[[422,184],[415,171],[394,149],[386,143],[370,134],[358,130],[351,130],[342,128],[319,128],[318,129],[303,130],[286,135],[282,138],[272,142],[254,156],[245,165],[229,187],[225,195],[223,203],[219,209],[220,214]],[[220,218],[222,216],[224,207],[230,193],[239,178],[247,168],[260,155],[273,145],[289,137],[304,133],[310,133],[315,131],[343,131],[344,132],[356,133],[377,141],[390,150],[409,169],[420,185],[426,199],[426,202],[428,206],[429,223]],[[447,239],[431,238],[427,242],[424,258],[427,261],[436,259],[440,260]],[[440,260],[442,262],[458,267],[463,267],[467,262],[468,246],[466,244],[450,239]],[[449,243],[452,243],[455,245],[466,248]],[[464,258],[464,261],[460,264],[457,262],[452,262],[442,258]],[[442,257],[443,256],[442,252],[444,249],[446,241]],[[441,244],[442,243],[441,242],[432,242],[430,246],[430,251],[428,254],[431,257],[438,255],[441,246]],[[442,273],[441,270],[439,269],[436,278],[434,280],[435,283],[438,282]],[[436,288],[443,289],[457,294],[460,299],[460,304],[456,311],[455,316],[451,321],[431,316]],[[430,316],[421,311],[415,312],[412,309]],[[416,306],[415,307],[413,305],[414,301],[413,300],[417,287],[434,286],[436,288]],[[431,289],[428,290],[425,289],[420,292]],[[421,303],[427,303],[431,296]],[[432,296],[434,298],[431,306],[431,311]],[[434,310],[436,302],[439,297],[442,298],[440,300],[438,308],[436,310],[436,312],[438,314],[449,318],[453,313],[450,309],[450,307]],[[454,310],[457,300],[453,296],[448,295],[443,292],[438,292],[436,294]],[[428,282],[424,281],[425,279],[424,277],[427,269],[429,268],[430,272],[428,277]],[[429,307],[420,306],[418,307],[417,306]],[[424,316],[418,315],[416,321],[419,324],[421,323],[426,325],[428,323],[429,319]],[[417,333],[412,333],[409,335],[406,335],[395,339],[375,355]],[[374,356],[359,374],[351,390],[349,398],[347,401],[343,421],[343,436],[344,437],[345,447]],[[349,447],[346,437],[346,420],[347,419],[348,408],[350,405],[350,402],[355,389],[361,377],[377,358]],[[377,358],[387,348],[396,342],[406,338],[410,338],[414,335]],[[416,337],[424,336],[426,338],[433,339],[439,342],[446,351],[450,364],[450,385],[449,386],[448,398],[444,410],[435,426]],[[441,421],[445,415],[452,394],[453,362],[451,353],[445,343],[445,338],[439,332],[427,328],[411,327],[409,328]],[[410,324],[406,324],[396,327],[381,334],[377,339],[369,345],[365,352],[356,360],[349,370],[341,386],[341,388],[339,390],[335,401],[335,403],[337,405],[336,418],[335,419],[336,424]],[[340,436],[340,431],[339,430],[340,414],[339,410],[343,403],[343,400],[346,394],[345,390],[350,385],[353,377],[370,355]],[[366,356],[359,363],[359,365],[356,368],[354,368]],[[355,357],[366,345]],[[373,326],[354,337],[337,354],[323,378],[318,394],[318,398],[316,401],[317,403]],[[317,403],[315,413],[315,426],[316,428],[315,429],[315,434],[321,446]],[[319,447],[316,444],[313,438],[313,435],[309,424],[309,413],[307,410],[310,401],[313,398],[316,390]],[[316,389],[326,366],[332,358]],[[330,357],[336,346]],[[339,345],[340,346],[348,336],[357,329],[370,323]],[[362,323],[375,316],[381,315]],[[388,323],[372,329],[360,338],[346,352],[334,369],[334,371],[329,379],[324,393],[321,406],[321,426],[324,441],[327,447]],[[330,447],[328,444],[325,432],[324,407],[329,387],[337,370],[351,351],[370,334],[384,327],[388,327],[394,324],[400,323]],[[397,330],[386,335],[387,336]],[[403,314],[394,311],[381,311],[369,315],[353,325],[341,338],[336,340],[321,360],[315,375],[311,379],[311,385],[307,394],[308,398],[306,404]],[[293,382],[281,382]],[[276,375],[274,380],[277,391],[276,392]],[[277,395],[276,396],[276,405],[277,406],[276,408],[277,409],[276,413],[276,419],[277,420],[276,422],[276,428],[277,429],[276,442],[277,445],[276,446],[277,447]],[[280,447],[280,433],[281,432],[281,427],[280,426],[281,424],[280,398]],[[280,395],[282,396],[283,404],[285,407],[284,408],[285,414],[284,415],[284,425],[283,426],[284,428],[284,441],[283,442],[283,447]],[[218,431],[212,430],[211,431],[204,428]],[[223,409],[214,406],[206,398],[200,385],[199,360],[202,346],[207,335],[212,328],[221,321],[235,320],[242,326],[245,331],[249,343],[250,357]],[[259,353],[261,363],[267,369],[274,373]],[[280,355],[281,354],[280,353],[281,352],[281,345],[285,335],[284,332],[282,334],[279,342],[278,354]],[[275,353],[274,354],[272,352],[272,349],[275,338],[277,335],[277,332],[279,330]],[[280,329],[281,332],[277,341],[275,351]],[[268,354],[269,347],[275,330]],[[272,329],[266,336],[263,345],[264,348]],[[262,352],[260,350],[260,346],[265,331],[270,326],[273,325],[278,326]],[[290,330],[288,332],[285,343],[285,355],[286,356]],[[289,356],[291,360],[293,359],[292,351],[294,341],[297,333],[300,330],[302,330]],[[292,333],[289,339],[288,349]],[[300,346],[301,341],[307,338],[309,340],[305,343]],[[307,351],[310,358],[313,354]],[[304,354],[305,358],[308,361],[312,360],[316,354],[315,344]],[[330,322],[336,317],[341,304],[344,300],[353,277],[359,266],[365,249],[373,234],[373,232],[376,228],[376,225],[381,218],[381,215],[389,199],[388,194]],[[387,195],[380,209],[380,211],[372,224],[371,229],[365,240],[363,248],[351,276]],[[344,272],[339,268],[320,260],[312,258],[305,258],[304,259],[289,255],[283,255]],[[283,255],[280,253],[280,249],[283,245],[302,246],[304,247]],[[311,249],[313,249],[315,251],[320,251],[328,256],[331,256],[341,264]],[[348,256],[344,253],[339,252],[330,247],[327,247],[323,244],[297,238],[290,238],[286,234],[288,229],[294,229],[310,232],[334,240]],[[334,240],[349,249],[352,252]],[[355,243],[344,236],[338,235],[329,230],[308,223],[297,222],[292,219],[296,214],[301,213],[302,214],[309,214],[327,219],[332,222],[337,223],[343,227],[345,226],[345,222]],[[353,216],[364,225]],[[366,223],[355,214]],[[347,211],[324,201],[312,198],[302,199],[300,203],[305,206],[309,206],[313,208],[321,209],[334,213],[341,218],[351,222],[362,231]],[[370,217],[359,208],[351,206]],[[351,206],[348,203],[340,200],[336,197],[332,197],[330,195],[326,195],[319,192],[309,191],[306,189],[306,186],[308,183],[314,183],[320,185],[325,185],[329,187],[333,187],[349,194],[357,199]],[[357,199],[360,203],[365,205],[369,210]],[[395,218],[392,221],[392,224],[396,228],[395,233]],[[395,233],[396,235],[388,252],[388,255]],[[400,227],[401,221],[397,211],[395,209],[393,199],[394,194],[385,185],[384,181],[382,179],[376,176]],[[375,176],[372,179],[371,183],[369,184],[365,183],[358,185]],[[358,165],[350,170],[343,177],[341,181],[345,184],[348,184],[352,179],[359,174],[370,170],[374,170],[376,172]],[[374,167],[367,164],[362,164]],[[360,160],[364,159],[374,163],[380,167],[394,182],[402,202],[403,220],[404,221],[403,228],[401,230],[395,247],[392,251],[391,257],[385,269],[385,272],[383,278],[381,280],[379,288],[372,301],[365,308]],[[316,271],[310,269],[308,267],[304,268]],[[304,268],[300,271],[295,283],[295,289],[298,297],[298,301],[301,304]],[[290,299],[288,293],[289,278],[291,273],[297,268]],[[298,267],[302,264],[308,262],[313,262],[314,263],[316,262]],[[314,273],[309,274],[305,270],[302,273],[302,275]],[[273,259],[272,257],[269,258],[267,260],[267,262],[268,263],[269,262]],[[265,262],[266,257],[271,251]],[[262,257],[263,261],[261,263],[259,261],[259,256],[260,255]],[[227,316],[217,320],[208,328],[203,335],[198,347],[195,363],[195,376],[196,377],[197,387],[201,396]],[[267,355],[266,354],[266,347],[270,336]],[[367,413],[369,404],[375,392],[381,383],[390,373]],[[393,375],[384,384],[376,396],[370,409],[368,418],[366,420],[366,436],[369,443],[373,447]],[[410,441],[413,440],[424,429],[435,410],[440,391],[440,383],[441,382],[440,381],[440,376],[437,367],[434,364],[429,362],[411,363],[400,368],[395,373]],[[393,370],[399,365],[415,359],[431,359],[436,361],[443,369],[444,389],[438,411],[431,423],[431,425],[425,433]],[[410,433],[421,421],[425,414],[426,408],[429,405],[432,397],[432,392],[433,391],[432,386]],[[422,372],[427,376],[430,382],[430,390],[427,403]],[[415,374],[422,375],[425,378],[425,381],[427,384],[427,391],[422,411],[415,423],[408,430]],[[489,230],[496,224],[497,220]],[[495,216],[494,218],[491,219],[488,226],[487,224]],[[362,156],[350,153],[343,153],[340,155],[338,154],[323,162],[314,171],[313,174],[311,174],[309,171],[315,161],[321,156],[327,153],[330,153]],[[356,157],[343,157],[339,161],[334,163],[328,168],[325,172],[325,174],[327,176],[333,177],[336,172],[344,165],[349,162],[356,160]],[[73,499],[69,503],[69,509],[68,510],[70,514],[74,518],[77,519],[86,519],[92,517],[107,503]],[[108,503],[117,510],[129,511],[140,506],[147,499],[151,491],[151,484],[149,476],[144,470],[139,467],[132,466]],[[131,466],[129,463],[124,461],[111,461],[101,465],[96,470],[94,474],[96,480]],[[108,502],[111,496],[129,473],[131,467]],[[161,502],[158,508],[158,513]],[[158,514],[165,519],[168,524]],[[168,524],[178,523]],[[168,524],[167,527],[153,541],[148,548],[147,556],[151,561],[156,561],[166,557],[171,553],[178,551],[180,553]],[[180,553],[178,567],[179,572],[184,577],[195,576],[202,572],[209,565],[209,563],[211,561],[211,558]],[[211,557],[207,556],[200,549],[199,538],[198,537]],[[198,536],[206,531],[212,532],[215,535],[217,542],[215,555]],[[215,556],[217,557],[218,556],[227,556],[229,555],[232,558]],[[233,558],[246,546],[251,543],[259,544],[267,550]],[[268,551],[264,566],[257,582]],[[256,582],[250,583],[243,588],[233,589],[228,585],[227,575],[232,563],[232,559]],[[257,583],[258,590],[261,593],[268,592],[278,586],[288,573],[293,572],[295,574]],[[296,574],[305,550],[310,547]],[[340,546],[338,546],[333,551],[333,554],[327,568],[326,575],[323,582]],[[323,583],[324,584],[325,594],[329,598],[331,598],[338,595],[347,586],[352,579],[357,577]],[[358,577],[360,584],[365,590],[369,592],[379,591],[391,584],[397,577],[401,569],[408,565]],[[409,565],[410,566],[411,576],[415,582],[423,581],[432,573],[438,563],[438,561],[445,556]],[[446,556],[448,564],[451,568],[458,567],[465,560],[469,550],[473,546]],[[473,545],[472,525],[473,524],[473,519],[476,517]],[[476,517],[478,509],[483,504],[490,503],[494,506],[501,518]],[[501,518],[507,515],[512,509],[512,507],[519,502]],[[521,502],[525,522],[527,526],[526,533]],[[501,522],[502,523],[502,542],[500,548],[497,552],[490,555],[484,555],[474,546]],[[476,517],[486,524],[493,524],[500,522]],[[520,497],[517,494],[516,491]],[[516,490],[518,484]],[[521,497],[526,492],[526,487],[529,478],[533,474],[538,472],[542,477],[545,490],[551,505],[555,509],[562,508],[567,501],[570,490],[570,484],[572,481]],[[448,500],[444,507]],[[449,520],[446,526],[446,555]],[[436,524],[427,529],[414,531]],[[413,530],[413,518],[417,510]],[[411,533],[406,533],[395,538]],[[412,534],[411,558],[409,564]],[[384,556],[386,547],[383,543],[378,543],[373,545],[365,553],[365,555],[361,561],[361,566],[358,576]],[[322,583],[317,585],[307,595],[297,597],[294,594],[295,575]],[[269,550],[274,542],[283,520],[287,517]],[[197,537],[191,539],[180,553]],[[157,514],[142,530],[134,536],[130,537]]];
+class Component extends DCLogic {
+componentDidMount() {
+this.initMedia();
+if (AWARDS.length) { const run = () => { const t0 = performance.now(); const step = (now) => { const k = Math.min(1, (now - t0) / 1400); this.setState({ statsK: k }); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }; try { const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); run(); } }); const tryObs = () => { const el = document.getElementById('palmares-stats'); if (el) io.observe(el); else setTimeout(tryObs, 500); }; tryObs(); } catch (e) { this.setState({ statsK: 1 }); } }
+if (REVIEWS.length > 1) { this.revTimer = setInterval(() => { const st = this.state || {}; if (st.page || (st.revPaused && Date.now() - st.revPaused < 12000)) return; this.setState({ revIdx: ((st.revIdx || 0) + 1) % REVIEWS.length }); }, 6000); }
+try { const sl = window.localStorage.getItem('artroom-lang'); if (sl === 'en' || sl === 'ro') this.setState({ lang: sl }); } catch (e) {}
+let reduce = false;
+try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+if (reduce || !(this.props.intro ?? true)) { this.setState({ introDone: true }); return; }
+this.buildPlan();
+const start = performance.now();
+const tick = (now) => {
+const t = (now - start) / 1000 * 1.6;
+if (t >= this.plan.end || (this.state && this.state.introDone)) { this.setState({ introDone: true }); return; }
+this.setState({ t: t });
+this.raf = requestAnimationFrame(tick);
+};
+this.raf = requestAnimationFrame(tick);
+}
+componentWillUnmount() {
+clearInterval(this.revTimer);
+if (this.unsubVideos) this.unsubVideos();
+cancelAnimationFrame(this.raf);
+}
+buildPlan() {
+const P = LOGO_PATHS;
+const V = 2100;
+const strokes = [], moves = [];
+let time = 0.3;
+let prev = [700, 700];
+const seg = (pts) => { const cum = [0]; for (let i = 1; i < pts.length; i++) { cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); } return cum; };
+P.forEach((pts, i) => {
+const tl = [prev, pts[0]];
+const tcum = seg(tl);
+const tdur = i === 0 ? 0.25 : 0;
+moves.push({ pts: tl, cum: tcum, t0: time, dur: tdur, draw: -1 });
+time += tdur;
+const cum = seg(pts);
+const len = cum[cum.length - 1];
+const centre = pts.length && pts[0][1] > 100 && pts[0][1] < 448 && i > 39 && i < P.length - 42;
+const dur = len / (V * (centre ? 1.7 : 1));
+strokes.push({ d: 'M' + pts.map((q) => q[0] + ' ' + q[1]).join('L'), len: len + 1, t0: time, dur: dur });
+moves.push({ pts: pts, cum: cum, t0: time, dur: dur, draw: i });
+time += dur * 0.5;
+prev = pts[pts.length - 1];
+});
+const exit = [prev, [760, 780]];
+moves.push({ pts: exit, cum: seg(exit), t0: time, dur: 0.5, draw: -1 });
+const drawEnd = strokes.reduce((mx, k) => Math.max(mx, k.t0 + k.dur), 0);
+const drawStart = strokes.length ? strokes[0].t0 : 0;
+this.plan = { strokes: strokes, moves: moves, drawEnd: drawEnd, drawStart: drawStart, end: drawEnd + 6.1 };
+}
+initMedia() {
+const c = window.claude;
+if (!c || typeof c.use !== 'function') return;
+c.use('db').then((db) => {
+if (!db) return;
+this.db = db;
+try {
+this.unsubVideos = db.collection('videos').orderBy('createdAt', 'desc').onSnapshot((snap) => {
+this.setState({ videoDocs: snap.docs.map((d) => ({ id: d.id, asset: (d.data() || {}).asset })).filter((v) => typeof v.asset === 'string') });
+}, () => {});
+} catch (e) {}
+return c.use('assets').then((assets) => { if (assets) { this.assets = assets; this.setState({ canUpload: true }); } });
+}).catch(() => {});
+}
+pickVideo(e) {
+const input = e && e.target;
+const file = input && input.files && input.files[0];
+if (input) input.value = '';
+if (!file || !this.assets || !this.db) return;
+const T = I18N[(this.state || {}).lang === 'en' ? 'en' : 'ro'];
+const type = file.type === 'video/webm' ? 'video/webm' : (file.type === 'video/mp4' || /\.mp4$/i.test(file.name) ? 'video/mp4' : '');
+if (!type) { this.setState({ vidMsg: 'vidType' }); return; }
+if (file.size > 20 * 1024 * 1024) { this.setState({ vidMsg: 'vidTooBig' }); return; }
+this.setState({ uploading: true, vidMsg: 'vidUploading' });
+this.assets.upload(file, { type: type }).then((r) => this.db.collection('videos').add({ asset: r.id, createdAt: Date.now() })).then(() => {
+this.setState({ uploading: false, vidMsg: 'vidDone' });
+}).catch((err) => {
+this.setState({ uploading: false, vidMsg: err && err.code === 'too_large' ? 'vidTooBig' : err && err.code === 'unsupported_type' ? 'vidType' : 'vidErr' });
+});
+}
+deleteVideo(v) {
+const st = this.state || {};
+if (st.confirmDel !== v.id) { this.setState({ confirmDel: v.id }); return; }
+this.setState({ confirmDel: null });
+if (!this.db) return;
+this.db.collection('videos').doc(v.id).delete().then(() => { if (this.assets) return this.assets.delete(v.asset); }).catch(() => {});
+}
+renderVals() {
+const st = this.state || {};
+const MEDAL = { grand: ['radial-gradient(circle at 35% 30%,#FFF1C2,#E2B65A 55%,#9C7420)', '#F3D48A'], gold: ['radial-gradient(circle at 35% 30%,#FBE3A0,#D4A437 60%,#8E6A1C)', '#E2B65A'], silver: ['radial-gradient(circle at 35% 30%,#FFFFFF,#BFC3C7 55%,#7D8288)', '#D3D6D9'], bronze: ['radial-gradient(circle at 35% 30%,#F3C49B,#B87333 60%,#6E4220)', '#D8995F'], other: ['radial-gradient(circle at 35% 30%,#F3D48A,#B8893A 60%,#6E5220)', '#C9C4BC'] };
+const awView = (a) => { const L = a[st.lang === 'en' ? 'en' : 'ro'] || a.ro || {}; const ph = (a.photos || []).slice(0, 3); return { contest: L.contest || '', place: L.place || '', when: L.when || String(a.year || ''), text: L.text || '', hasText: !!L.text, photos: ph.map((x) => ({ src: x })), hasPhotos: ph.length > 0, noPhotos: ph.length === 0, mos: a.layout === 'stack' ? 'mosS' : 'mos' + Math.max(1, ph.length), winners: (a.winners || []).map((w) => { const md = MEDAL[w.medal] || MEDAL.other; const W = w[st.lang === 'en' ? 'en' : 'ro'] || w.ro || {}; return { name: w.name, prize: W.prize || '', medalBg: md[0], medalText: md[1] }; }) }; };
+const awSorted = AWARDS.slice().sort((x, y) => String(y.date || y.year).localeCompare(String(x.date || x.year)));
+const awYearsList = Array.from(new Set(awSorted.map((a) => a.year))).filter(Boolean);
+const awYear = st.awYear || 'all';
+const awEase = (() => { const k = Math.max(0, Math.min(1, (st.statsK || 0))); return 1 - Math.pow(1 - k, 3); })();
+const awAllW = AWARDS.reduce((acc, a) => acc.concat(a.winners || []), []);
+const awFirst = awAllW.filter((w) => w.medal === 'gold' || w.medal === 'grand').length;
+const awCountries = new Set(AWARDS.map((a) => a.country).filter(Boolean)).size;
+const songView = (sg, si) => { const L = sg[st.lang === 'en' ? 'en' : 'ro'] || sg.ro; return { title: sg.title, singer: sg.singer, hasSinger: !!sg.singer, cover: sg.cover || 'a/ecf4efffec1e621b2011d687a59de706.png', fit: sg.cover ? 'cover' : 'contain', pad: sg.cover ? '0' : '14%', audio: sg.audio, story: L ? L.story : '', hasStory: !!(L && L.story), spin: st.playing === si ? 'running' : 'paused', slide: st.playing === si ? '10%' : '0%', open: () => this.setState({ page: 'Song', songIdx: si }), comments: SONG_COMMENTS_SAMPLE.map((c) => { const C = c[st.lang === 'en' ? 'en' : 'ro']; return { initial: c.initial, name: C.name, when: C.when, text: C.text }; }), cmCount: String(SONG_COMMENTS_SAMPLE.length), cmOpen: (st.cmOpen || {})[si] === true, cmExpanded: (st.cmOpen || {})[si] ? 'true' : 'false', cmArrow: (st.cmOpen || {})[si] ? '▴' : '▾', toggleCm: () => { const o = Object.assign({}, (this.state || {}).cmOpen || {}); o[si] = !o[si]; this.setState({ cmOpen: o }); }, onPlay: () => this.setState({ playing: si }), onPause: () => { if ((this.state || {}).playing === si) this.setState({ playing: null }); } }; };
+const T = I18N[st.lang === 'en' ? 'en' : 'ro'];
+const spRaw = typeof st.songIdx === 'number' && SONGS[st.songIdx] ? SONGS[st.songIdx] : null;
+const sp = spRaw ? Object.assign(songView(spRaw, st.songIdx), { music: spRaw.music || '[COMPLETEAZĂ]', lyricsBy: spRaw.lyricsBy || T.fillIn, lyrics: spRaw.lyrics || T.fillIn, storyText: ((spRaw[st.lang === 'en' ? 'en' : 'ro'] || {}).story) || T.fillIn }) : { comments: [] };
+
+const t = st.t || 0;
+const cl = (v) => Math.max(0, Math.min(1, v));
+const ez = (v) => { v = cl(v); return v < 0.5 ? 2 * v * v : 1 - Math.pow(-2 * v + 2, 2) / 2; };
+const f = (v) => v.toFixed(1);
+const base = {
+gold: this.props.gold ?? '#E2B65A',
+red: this.props.red ?? '#B3122A',
+showIntro: (this.props.intro ?? true) && !st.introDone,
+skipIntro: () => this.setState({ introDone: true }),
+gallery: PHOTOS.map((ph, i) => ({ src: ph.src, pos: ph.pos, n: String(i + 1), open: () => this.setState({ lb: i, lbList: null }) })),
+concerts: CONCERTS.map((c) => { const L = c[st.lang === 'en' ? 'en' : 'ro']; const list = c.photos.map((x) => ({ src: x.src, pos: x.pos })); return { title: L.title, place: L.place, when: L.when, text: L.text, photos: c.photos.map((x, i) => ({ src: x.src, cls: 'cg-' + (x.cls || 'n'), pos: x.pos, open: () => this.setState({ lb: i, lbList: list }) })) }; }),
+pgTeam: st.page === 'Team' ? 'block' : 'none',
+pgConcerts: st.page === 'Concerts' ? 'block' : 'none',
+pgSubs: st.page === 'Subs' ? 'block' : 'none',
+pgRules: st.page === 'Rules' ? 'block' : 'none',
+pgGallery: st.page === 'Gallery' ? 'block' : 'none',
+closePage: () => this.setState({ page: null }),
+goTeam: () => this.setState({ page: 'Team' }),
+goConcerts: () => this.setState({ page: 'Concerts' }),
+goSubs: () => this.setState({ page: 'Subs' }),
+goRules: () => this.setState({ page: 'Rules' }),
+goGallery: () => this.setState({ page: 'Gallery' }),
+goGallery: () => this.setState({ page: 'Gallery' }),
+pgVideo: st.page === 'Video' ? 'block' : 'none',
+goVideo: () => this.setState({ page: 'Video' }),
+canUpload: !!st.canUpload,
+uploading: !!st.uploading,
+onPickVideo: (e) => this.pickVideo(e),
+vidStatus: st.vidMsg ? I18N[st.lang === 'en' ? 'en' : 'ro'][st.vidMsg] : I18N[st.lang === 'en' ? 'en' : 'ro'].vidHint,
+noVideos: !(st.videoDocs && st.videoDocs.length),
+videos: (st.videoDocs || []).map((v) => ({ src: '/_blob/' + v.asset, del: () => this.deleteVideo(v), delLabel: I18N[st.lang === 'en' ? 'en' : 'ro'][st.confirmDel === v.id ? 'vidDelSure' : 'vidDel'] })),
+reviews: REVIEWS.map((r, ri) => { const on = ri === ((st.revIdx || 0) % REVIEWS.length); const L = r[st.lang === 'en' ? 'en' : 'ro']; return { name: L.name, source: L.source, text: L.text, photo: r.photo || '', hasPhoto: !!r.photo, noPhoto: !r.photo, initials: r.initials || '', sample: !!r.sample, op: on ? '1' : '0', vis: on ? 'visible' : 'hidden', hidden: on ? 'false' : 'true' }; }),
+manyReviews: REVIEWS.length > 1,
+revPrev: () => this.setState({ revIdx: ((st.revIdx || 0) - 1 + REVIEWS.length) % REVIEWS.length, revPaused: Date.now() }),
+revNext: () => this.setState({ revIdx: ((st.revIdx || 0) + 1) % REVIEWS.length, revPaused: Date.now() }),
+revDots: REVIEWS.map((r, ri) => ({ go: () => this.setState({ revIdx: ri, revPaused: Date.now() }), label: String(ri + 1), bg: ri === ((st.revIdx || 0) % REVIEWS.length) ? (this.props.gold ?? '#E2B65A') : 'rgba(242,237,228,0.3)' })),
+goReviews: () => this.setState({ page: 'Reviews' }),
+pgReviews: st.page === 'Reviews' ? 'block' : 'none',
+noReviews: REVIEWS.length === 0,
+waHref: 'https://wa.me/40753641814?text=' + encodeURIComponent(I18N[st.lang === 'en' ? 'en' : 'ro'].waMsg),
+faq: FAQ.map((f, fi) => { const L = f[st.lang === 'en' ? 'en' : 'ro']; const open = st.faqOpen === fi; return { q: L.q, a: L.a, open: open, expanded: open ? 'true' : 'false', rot: open ? '45deg' : '0deg', toggle: () => this.setState({ faqOpen: open ? null : fi }) }; }),
+songs: SONGS.map(songView),
+noSongs: SONGS.length === 0,
+sp: sp,
+pgSong: st.page === 'Song' ? 'block' : 'none',
+noAwards: AWARDS.length === 0, hasAwards: AWARDS.length > 0,
+awardsTop: awSorted.slice(0, 3).map(awView),
+awardsAll: awSorted.filter((a) => awYear === 'all' || a.year === awYear).map(awView),
+awYears: [{ v: 'all', label: T.palAllYears }].concat(awYearsList.map((y) => ({ v: y, label: String(y) }))).map((y) => ({ label: y.label, on: awYear === y.v ? 'true' : 'false', bg: awYear === y.v ? (this.props.gold ?? '#E2B65A') : 'transparent', fg: awYear === y.v ? '#0A0A0A' : '#F2EDE4', bd: awYear === y.v ? (this.props.gold ?? '#E2B65A') : 'rgba(226,182,90,0.5)', pick: () => this.setState({ awYear: y.v }) })),
+stTotal: String(Math.round(awAllW.length * awEase)), stFirst: String(Math.round(awFirst * awEase)), stCountries: String(Math.round(awCountries * awEase)),
+goAwards: () => this.setState({ page: 'Awards' }),
+pgAwards: st.page === 'Awards' ? 'block' : 'none',
+lbTotal: awAllW.length === 1 ? T.palTotal1 : T.palTotal, lbFirst: awFirst === 1 ? T.palFirst1 : T.palFirst, lbCountries: awCountries === 1 ? T.palCountries1 : T.palCountries,
+phoneOpen: !!st.phone,
+openPhone: () => this.setState({ phone: true }),
+closePhone: (e) => { if (e && e.target !== e.currentTarget) return; this.setState({ phone: false }); },
+lbOpen: typeof st.lb === 'number',
+lbSrc: typeof st.lb === 'number' ? (st.lbList || PHOTOS)[st.lb].src : '',
+lbCount: typeof st.lb === 'number' ? (st.lb + 1) + ' / ' + (st.lbList || PHOTOS).length : '',
+closeLb: (e) => { if (e && e.target !== e.currentTarget) return; this.setState({ lb: null }); },
+prevLb: (e) => { if (e) e.stopPropagation(); { const LL = st.lbList || PHOTOS; this.setState({ lb: ((st.lb || 0) - 1 + LL.length) % LL.length }); } },
+nextLb: (e) => { if (e) e.stopPropagation(); { const LL = st.lbList || PHOTOS; this.setState({ lb: ((st.lb || 0) + 1) % LL.length }); } },
+openFrame: (e) => {
+let best = null, bo = -1;
+const imgs = e.currentTarget.querySelectorAll('img');
+imgs.forEach((im) => { let o = 1; try { o = parseFloat(window.getComputedStyle(im).opacity); } catch (x) {} if (o > bo) { bo = o; best = im; } });
+const src = best ? best.getAttribute('src') : '';
+const idx = PHOTOS.findIndex((ph) => ph.src === src);
+this.setState({ lb: idx >= 0 ? idx : 0, lbList: null });
+},
+t: I18N[st.lang === 'en' ? 'en' : 'ro'],
+isRo: st.lang !== 'en' ? 'true' : 'false', isEn: st.lang === 'en' ? 'true' : 'false',
+setRo: () => { this.setState({ lang: 'ro' }); try { window.localStorage.setItem('artroom-lang', 'ro'); } catch (e) {} },
+setEn: () => { this.setState({ lang: 'en' }); try { window.localStorage.setItem('artroom-lang', 'en'); } catch (e) {} },
+roRing: st.lang !== 'en' ? (this.props.gold ?? '#E2B65A') : 'transparent', roOp: st.lang !== 'en' ? '1' : '0.5',
+enRing: st.lang === 'en' ? (this.props.gold ?? '#E2B65A') : 'transparent', enOp: st.lang === 'en' ? '1' : '0.5',
+roBg: st.lang !== 'en' ? (this.props.gold ?? '#E2B65A') : 'rgba(10,10,10,0.55)', roFg: st.lang !== 'en' ? '#0A0A0A' : '#F2EDE4', roBd: st.lang !== 'en' ? (this.props.gold ?? '#E2B65A') : 'rgba(242,237,228,0.5)',
+enBg: st.lang === 'en' ? (this.props.gold ?? '#E2B65A') : 'rgba(10,10,10,0.55)', enFg: st.lang === 'en' ? '#0A0A0A' : '#F2EDE4', enBd: st.lang === 'en' ? (this.props.gold ?? '#E2B65A') : 'rgba(242,237,228,0.5)'
+};
+const plan = this.plan;
+if (!plan) { return Object.assign(base, { introOp: '1', strokes: [], words: [], notes: [], logoOp: '0', fullMask: '0', maskStrokeOp: '1', linesOp: '1', handX: '700', handY: '700', handRot: '0', liftX: '0', liftY: '0', handOp: '0', tipGlow: '0', lineW: '0', textOp: '0', textY: '14' }); }
+let hx = 700, hy = 700, drawing = false;
+let mv = plan.moves[0];
+for (let i = 0; i < plan.moves.length; i++) { if (plan.moves[i].t0 <= t) mv = plan.moves[i]; else break; }
+const k = cl((t - mv.t0) / mv.dur);
+const L = mv.cum[mv.cum.length - 1] * k;
+let j = 1; while (j < mv.cum.length - 1 && mv.cum[j] < L) j++;
+const a = mv.pts[j - 1], b = mv.pts[j] || a;
+const segL = (mv.cum[j] - mv.cum[j - 1]) || 1;
+const u = cl((L - mv.cum[j - 1]) / segL);
+hx = a[0] + (b[0] - a[0]) * u; hy = a[1] + (b[1] - a[1]) * u;
+drawing = mv.draw >= 0 && k < 1;
+const ds = plan.drawStart, dd = plan.drawEnd - plan.drawStart;
+const sm = (v) => { v = cl(v); return 0.5 - 0.5 * Math.cos(Math.PI * v); };
+const tw = t <= ds ? t : t >= plan.drawEnd ? t : ds + dd * sm((t - ds) / dd);
+const strokes = plan.strokes.map((sk) => ({ d: sk.d, len: f(sk.len), off: f(sk.len * (1 - sm((tw - sk.t0) / sk.dur))), moff: f(sk.len * (1 - sm((tw - sk.t0 - 0.25) / sk.dur))) }));
+const de = plan.drawEnd;
+const x = ez((t - de - 0.2) / 0.8);
+const tOp = cl((t - de - 1.2) / 0.8);
+const notes = [];
+if (false) {
+let seed = 7;
+const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+for (let i = 0; i < 26; i++) {
+const ang = rnd() * Math.PI * 2, rad = 120 + rnd() * 90;
+const x0 = 318 + Math.cos(ang) * rad * 1.05, y0 = 250 + Math.sin(ang) * rad * 0.85 - 30;
+const dur = 2.6 + rnd() * 1.8, off = rnd();
+const ph = (((t - de - 1.6) / dur) + off) % 1;
+const fadeIn = cl((t - de - 1.6) / 0.8);
+const tw = 0.65 + 0.35 * Math.sin(t * 9 + i * 1.7);
+notes.push({ x: (x0 + Math.sin(ph * 6.28 + i) * 6).toFixed(1), y: (y0 + ph * 70).toFixed(1), r: ((rnd() - 0.5) * 40).toFixed(0), s: (0.45 + rnd() * 0.3).toFixed(2), o: (Math.sin(Math.PI * ph) * fadeIn * tw).toFixed(3), beam: i % 3 === 0, single: i % 3 !== 0 });
+}
+}
+const gold = this.props.gold ?? '#E2B65A';
+const txt = I18N[st.lang === 'en' ? 'en' : 'ro'].slogan;
+let ci = 0;
+const words = txt.split(' ').map((wd, wi, arr) => ({ chars: Array.from(wd).map((ch) => { const o = cl((t - de - 0.6 - ci * 0.04) / 0.25); ci++; return { ch: ch, op: o.toFixed(3), y: (8 * (1 - o)).toFixed(1), col: wi === arr.length - 1 ? gold : '#F2EDE4' }; }) }));
+return Object.assign(base, {
+introOp: f(t < de + 5.4 ? 1 : cl(1 - (t - de - 5.4) / 0.6)),
+words: words,
+notes: [],
+strokes: strokes,
+logoOp: '0.92', fullMask: ez((t - de - 0.1) / 1.4).toFixed(3), maskStrokeOp: '1', linesOp: (1 - 0.85 * ez((t - de) / 1.4)).toFixed(3),
+handX: f(hx), handY: f(hy), handRot: f(Math.sin(t * 2.3) * 2.5),
+handOp: (t < de + 0.6 ? cl(t / 0.25) : 0).toFixed(2),
+liftX: drawing ? '0' : '4', liftY: drawing ? '0' : '-7',
+tipGlow: '0',
+lineW: f(140 * cl((t - de - 1.0) / 0.6)),
+textOp: tOp.toFixed(3), textY: f(14 * (1 - tOp))
+});
+}
+}
+</script>
+</body>
+</html>
