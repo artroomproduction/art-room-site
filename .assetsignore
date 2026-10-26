@@ -2,3 +2,5 @@
 .assetsignore
 wrangler.jsonc
 README.md
+src
+node_modules

@@ -1,5 +1,10 @@
 {
   "name": "art-room-site",
+  "main": "src/worker.js",
   "compatibility_date": "2026-01-01",
-  "assets": { "directory": "." }
+  "assets": { "directory": ".", "binding": "ASSETS" },
+  "durable_objects": {
+    "bindings": [{ "name": "COMMENTS", "class_name": "CommentsStore" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["CommentsStore"] }]
 }

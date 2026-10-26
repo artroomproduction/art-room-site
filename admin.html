@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Comentarii – administrare</title>
+<style>
+:root{--bg:#0A0A0A;--card:#161616;--line:#2A2928;--text:#F2EDE4;--muted:#8F8A84;--gold:#E2B65A;--red:#B3122A}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,sans-serif}
+main{max-width:720px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:22px;margin:0 0 4px}
+p.sub{color:var(--muted);margin:0 0 20px;font-size:14px}
+input{width:100%;box-sizing:border-box;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#111;color:var(--text);font:inherit}
+button{font:inherit;border:0;border-radius:999px;padding:10px 18px;cursor:pointer;min-height:44px}
+.gold{background:var(--gold);color:#1a1405;font-weight:700}
+.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.del{background:transparent;color:#ff8a8a;border:1px solid #5a2a2a}
+.row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-top:12px}
+.card.pending{border-color:var(--gold)}
+.meta{font-size:13px;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:999px;margin-left:6px}
+.tag.p{background:var(--gold);color:#1a1405}.tag.a{background:#1f3b26;color:#9be3ad}
+h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:28px 0 0}
+#msg{color:var(--muted);margin-top:12px;font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<h1>Comentarii la piese</h1>
+<p class="sub">Comentariile noi apar pe site doar după ce le aprobi aici.</p>
+<div id="login">
+<input id="key" type="password" placeholder="Parola de administrare" autocomplete="current-password">
+<div class="row"><button class="gold" id="go">Intră</button></div>
+</div>
+<div id="msg"></div>
+<div id="list"></div>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+let KEY = '';
+try { KEY = sessionStorage.getItem('ar-admin') || ''; } catch (e) {}
+const songName = { 'million': 'Million', 'sing-it': 'Sing It' };
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+async function api(path, body){
+  const r = await fetch(path, { method: body ? 'POST' : 'GET', headers: { 'x-admin-key': KEY, 'content-type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+  if (r.status === 401) throw new Error('Parolă greșită.');
+  if (r.status === 503) throw new Error('Parola de administrare nu e setată încă în Cloudflare.');
+  if (!r.ok) throw new Error('Eroare ' + r.status);
+  return r.json();
+}
+async function load(){
+  $('msg').textContent = 'Se încarcă…';
+  try {
+    const { comments } = await api('/api/admin/comments');
+    try { sessionStorage.setItem('ar-admin', KEY); } catch (e) {}
+    $('login').style.display = 'none';
+    const pend = comments.filter(c => !c.approved), ok = comments.filter(c => c.approved);
+    $('msg').textContent = pend.length ? pend.length + ' comentarii așteaptă aprobarea.' : 'Niciun comentariu nou de aprobat.';
+    const card = (c) => `<div class="card ${c.approved ? '' : 'pending'}"><div class="meta">${esc(songName[c.song] || c.song)} · ${new Date(c.created).toLocaleString('ro-RO')}<span class="tag ${c.approved ? 'a' : 'p'}">${c.approved ? 'PUBLICAT' : 'NOU'}</span></div><p style="margin:6px 0 0"><strong>${esc(c.name)}</strong></p><p style="margin:4px 0 0">${esc(c.text)}</p><div class="row">${c.approved ? '' : `<button class="gold" data-a="${c.id}">Aprobă</button>`}<button class="del" data-d="${c.id}">Șterge</button></div></div>`;
+    $('list').innerHTML = (pend.length ? '<h2>De aprobat</h2>' + pend.map(card).join('') : '') + (ok.length ? '<h2>Publicate</h2>' + ok.map(card).join('') : '');
+  } catch (e) { $('msg').textContent = e.message; $('login').style.display = ''; }
+}
+$('go').onclick = () => { KEY = $('key').value.trim(); load(); };
+$('key').onkeydown = (e) => { if (e.key === 'Enter') $('go').click(); };
+$('list').onclick = async (e) => {
+  const a = e.target.dataset.a, d = e.target.dataset.d;
+  if (!a && !d) return;
+  if (d && !confirm('Ștergi definitiv comentariul?')) return;
+  e.target.disabled = true;
+  try { await api(a ? '/api/admin/approve' : '/api/admin/delete', { id: Number(a || d) }); load(); }
+  catch (err) { $('msg').textContent = err.message; e.target.disabled = false; }
+};
+if (KEY) load();
+</script>
+</body>
+</html>
