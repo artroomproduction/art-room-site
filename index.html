@@ -20,13 +20,13 @@ a{color:#F2EDE4}a:hover{color:#FFFFFF}
 .hnote{position:absolute;display:block;margin:-2.5px 0 0 -2.5px;opacity:0;animation-name:heroNoteFall,heroTwinkle;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite}
 @media (prefers-reduced-motion: reduce){.hnote{animation:none;opacity:0.8}}
 @keyframes spotSway{0%{transform:rotate(-1.4deg)}100%{transform:rotate(1.4deg)}}
-.spot-sway{position:absolute;inset:0;will-change:transform,opacity;transform-origin:calc(50% + 20px) 0;animation:spotSway 12s ease-in-out infinite alternate}
+.spot-sway{position:absolute;inset:0;transform-origin:calc(50% + 20px) 0;animation:spotSway 12s ease-in-out infinite alternate}
 @media (prefers-reduced-motion: reduce){.spot-sway{animation:none}}
 @keyframes spotLive{0%{opacity:0.82;transform:translateX(-50%) scale(0.99)}18%{opacity:1;transform:translateX(-50%) scale(1.02)}33%{opacity:0.88;transform:translateX(-50%) scale(1)}52%{opacity:0.97;transform:translateX(-50%) scale(1.01)}68%{opacity:0.8;transform:translateX(-50%) scale(0.98)}84%{opacity:0.95;transform:translateX(-50%) scale(1.01)}100%{opacity:0.82;transform:translateX(-50%) scale(0.99)}}
 @keyframes beamLive{0%{opacity:0.85}18%{opacity:1}33%{opacity:0.9}52%{opacity:0.98}68%{opacity:0.82}84%{opacity:0.96}100%{opacity:0.85}}
-.spot-beam{position:absolute;will-change:transform,opacity;left:calc(50% + 20px);top:-2%;width:min(78%,820px);height:104%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,238,210,0.24),rgba(255,224,184,0.10) 60%,rgba(255,224,184,0.03));clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);filter:blur(22px);animation:beamLive 90s ease-in-out infinite}
-.spot-glow{position:absolute;will-change:transform,opacity;left:calc(50% + 20px);top:-50px;width:340px;height:210px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,246,226,0.55),rgba(255,236,205,0.18) 40%,rgba(255,236,205,0) 70%);filter:blur(10px);animation:spotLive 90s ease-in-out infinite}
-.spot-pool{position:absolute;will-change:transform,opacity;left:calc(50% + 20px);bottom:2%;width:min(70%,700px);height:140px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,226,186,0.20),rgba(255,226,186,0) 70%);filter:blur(8px);animation:beamLive 90s ease-in-out infinite}
+.spot-beam{position:absolute;left:calc(50% + 20px);top:-2%;width:min(78%,820px);height:104%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,238,210,0.24),rgba(255,224,184,0.10) 60%,rgba(255,224,184,0.03));clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);filter:blur(22px);animation:beamLive 90s ease-in-out infinite}
+.spot-glow{position:absolute;left:calc(50% + 20px);top:-50px;width:340px;height:210px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,246,226,0.55),rgba(255,236,205,0.18) 40%,rgba(255,236,205,0) 70%);filter:blur(10px);animation:spotLive 90s ease-in-out infinite}
+.spot-pool{position:absolute;left:calc(50% + 20px);bottom:2%;width:min(70%,700px);height:140px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,226,186,0.20),rgba(255,226,186,0) 70%);filter:blur(8px);animation:beamLive 90s ease-in-out infinite}
 @media (prefers-reduced-motion: reduce){.spot-beam,.spot-pool,.spot-glow{animation:none}}
 .social-col::before{content:"";position:absolute;left:50%;top:-12px;bottom:-12px;width:1px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(226,182,90,0),rgba(226,182,90,0.75) 15%,rgba(226,182,90,0.75) 85%,rgba(226,182,90,0));pointer-events:none}
 .social-col .vinyl{z-index:1}
@@ -54,6 +54,9 @@ a{color:#F2EDE4}a:hover{color:#FFFFFF}
 .media-btn:hover{border-color:#E2B65A;background:rgba(226,182,90,0.14)}
 .media-btn:hover .media-disc{animation:vinylSpin 1.6s linear infinite}
 @media (prefers-reduced-motion: reduce){.eq i,.media-btn:hover .media-disc{animation:none}}
+html.ov-open .hero-wrap{visibility:hidden}
+html.ov-open .hero-wrap *{animation-play-state:paused!important}
+html.ov-open body{overflow:hidden}
 .page-ov{position:fixed;inset:0;z-index:80;overflow-y:auto;background:#0A0A0A;-webkit-overflow-scrolling:touch}
 .page-bar{position:sticky;top:0;z-index:2;padding:12px 16px;background:linear-gradient(#0A0A0A 70%,rgba(10,10,10,0))}
 .page-back{min-height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(226,182,90,0.6);background:rgba(10,10,10,0.8);color:#F2EDE4;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
@@ -169,7 +172,7 @@ header{padding-top:36px!important}
 </div>
 </sc-if>
 
-<div style="position: relative; z-index: 0; overflow: hidden; background: #0A0A0A">
+<div class="hero-wrap" style="position: relative; z-index: 0; overflow: hidden; background: #0A0A0A">
 <div class="collage-layer" aria-hidden="true" style="position: absolute; inset: 0">
 <div class="cf1 cframe-click" onClick="{{openFrame}}" style="position: absolute; left: -5%; top: -5%; width: 33%; height: 40%; border: 6px solid #F2EDE4; border-radius: 4px; transform: rotate(-4deg); box-shadow: 0 12px 32px rgba(0,0,0,0.6); overflow: hidden; background: #161616; box-sizing: border-box">
 <img fetchpriority="high" decoding="async" class="cyc4" src="a/be1ea931e1f486b9fa302bb8fd16ac0e.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 52% 30%; animation-delay: -0.0s">
@@ -714,6 +717,11 @@ this.setState({ t: t });
 this.raf = requestAnimationFrame(tick);
 };
 this.raf = requestAnimationFrame(tick);
+}
+componentDidUpdate() {
+const st = this.state || {};
+const on = !!st.page || typeof st.lb === 'number';
+try { document.documentElement.classList.toggle('ov-open', on); } catch (e) {}
 }
 componentWillUnmount() {
 clearInterval(this.revTimer);
