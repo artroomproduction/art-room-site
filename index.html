@@ -353,7 +353,7 @@ header{padding-top:36px!important}
 </sc-if>
 <sc-if value="{{hasAwards}}" hint-placeholder-val="{{ false }}">
 <div id="palmares-stats" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 56px; margin: 0 0 48px"><div style="min-width: 120px"><p style="margin: 0; font-size: clamp(2.4rem, 7vw, 3.4rem); font-weight: 800; line-height: 1; color: {{gold}}">{{stTotal}}</p><p style="margin: 8px 0 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9C4BC">{{lbTotal}}</p></div><div style="min-width: 120px"><p style="margin: 0; font-size: clamp(2.4rem, 7vw, 3.4rem); font-weight: 800; line-height: 1; color: {{gold}}">{{stFirst}}</p><p style="margin: 8px 0 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9C4BC">{{lbFirst}}</p></div><div style="min-width: 120px"><p style="margin: 0; font-size: clamp(2.4rem, 7vw, 3.4rem); font-weight: 800; line-height: 1; color: {{gold}}">{{stCountries}}</p><p style="margin: 8px 0 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9C4BC">{{lbCountries}}</p></div></div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; text-align: left">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; text-align: left; opacity: {{awTopOp}}; transition: opacity 0.9s ease">
 <sc-for list="{{awardsTop}}" as="a" hint-placeholder-count="0">
 <article style="background: #141414; border: 1px solid #2A2928; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
 <sc-if value="{{a.hasPhotos}}" hint-placeholder-val="{{ false }}">
@@ -708,6 +708,7 @@ class Component extends DCLogic {
 componentDidMount() {
 this.initMedia();
 if (AWARDS.length) { const run = () => { const t0 = performance.now(); const step = (now) => { const k = Math.min(1, (now - t0) / 1400); this.setState({ statsK: k }); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }; try { const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); run(); } }); const tryObs = () => { const el = document.getElementById('palmares-stats'); if (el) io.observe(el); else setTimeout(tryObs, 500); }; tryObs(); } catch (e) { this.setState({ statsK: 1 }); } }
+if (AWARDS.length > 3) { this.awTimer = setInterval(() => { const st = this.state || {}; if (st.page || typeof st.lb === 'number' || document.hidden) return; this.setState({ awTopFade: true }); setTimeout(() => { const s2 = this.state || {}; this.setState({ awTop: (s2.awTop || 0) + 1, awTopFade: false }); }, 900); }, 9000); }
 if (REVIEWS.length > 1) { this.revTimer = setInterval(() => { const st = this.state || {}; if (st.page || (st.revPaused && Date.now() - st.revPaused < 12000)) return; this.setState({ revIdx: ((st.revIdx || 0) + 1) % REVIEWS.length }); }, 6000); }
 try { const sl = window.localStorage.getItem('artroom-lang'); if (sl === 'en' || sl === 'ro') this.setState({ lang: sl }); } catch (e) {}
 let reduce = false;
@@ -730,6 +731,7 @@ try { document.documentElement.classList.toggle('ov-open', on); } catch (e) {}
 }
 componentWillUnmount() {
 clearInterval(this.revTimer);
+clearInterval(this.awTimer);
 if (this.unsubVideos) this.unsubVideos();
 cancelAnimationFrame(this.raf);
 }
@@ -860,7 +862,8 @@ noSongs: SONGS.length === 0,
 sp: sp,
 pgSong: st.page === 'Song' ? 'block' : 'none',
 noAwards: AWARDS.length === 0, hasAwards: AWARDS.length > 0,
-awardsTop: awSorted.slice(0, 3).map(awView),
+awardsTop: (() => { const n = awSorted.length; if (n <= 3) return awSorted.map(awView); const st0 = ((st.awTop || 0) * 3) % n; const out = []; for (let k = 0; k < 3; k++) out.push(awSorted[(st0 + k) % n]); return out.map(awView); })(),
+awTopOp: st.awTopFade ? '0' : '1',
 awardsAll: awSorted.filter((a) => awYear === 'all' || a.year === awYear).map(awView),
 awYears: [{ v: 'all', label: T.palAllYears }].concat(awYearsList.map((y) => ({ v: y, label: String(y) }))).map((y) => ({ label: y.label, on: awYear === y.v ? 'true' : 'false', bg: awYear === y.v ? (this.props.gold ?? '#E2B65A') : 'transparent', fg: awYear === y.v ? '#0A0A0A' : '#F2EDE4', bd: awYear === y.v ? (this.props.gold ?? '#E2B65A') : 'rgba(226,182,90,0.5)', pick: () => this.setState({ awYear: y.v }) })),
 stTotal: String(Math.round(awAllW.length * awEase)), stFirst: String(Math.round(awFirst * awEase)), stCountries: String(Math.round(awCountries * awEase)),
