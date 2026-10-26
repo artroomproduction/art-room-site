@@ -113,6 +113,10 @@ button.media-btn{font-weight:inherit}
 .news-more{margin-top:4px;font-size:14px;font-weight:600}
 @media (max-width: 960px){.news-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width: 760px){.news-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:24px;gap:14px;margin:0 -24px;padding:0 24px 8px;scrollbar-width:none}.news-row::-webkit-scrollbar{display:none}.news-card{flex:0 0 78%;scroll-snap-align:start}}
+@keyframes shineWave{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+@keyframes shineGlow{0%,100%{filter:drop-shadow(0 0 6px rgba(226,182,90,.25))}50%{filter:drop-shadow(0 0 14px rgba(240,208,138,.5))}}
+.shine-title{background:linear-gradient(100deg,#E2B65A 0%,#FFF4D6 12%,#F0B8C8 24%,#E2B65A 36%,#FFFFFF 46%,#C9A2F0 58%,#E2B65A 70%,#FFF4D6 82%,#E2B65A 100%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shineWave 10s linear infinite,shineGlow 5s ease-in-out infinite;padding:0 .15em}
+@media (prefers-reduced-motion: reduce){.shine-title{animation:none}}
 .mosS{display:grid;gap:3px;background:#0A0A0A;grid-template-rows:auto auto}
 .mosS img{width:100%;height:auto;display:block}
 @keyframes vinylSpin{to{transform:rotate(360deg)}}
@@ -345,7 +349,7 @@ header{padding-top:36px!important}
 </section>
 <section id="cantece" style="background: #0A0A0A; border-top: 1px solid #242322">
 <div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px 88px; text-align: center">
-<h2 style="margin: 0 0 8px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(2.8rem, 5vw, 3.8rem); line-height: 1.15; color: #F2EDE4">{{t.songsH}}</h2>
+<h2 class="shine-title" style="margin: 0 0 8px; font-family: &#39;Great Vibes&#39;, cursive; font-weight: 400; font-size: clamp(3rem, 6vw, 4.4rem); line-height: 1.2; color: #F2EDE4">{{t.songsH}}</h2>
 <p style="margin: 0 auto 44px; max-width: 620px; color: #C9C4BC; font-size: 17px">{{t.songsSub}}</p>
 <sc-if value="{{noSongs}}" hint-placeholder-val="{{ true }}">
 <p style="margin: 0 auto 48px; max-width: 520px; padding: 28px; border: 1.5px dashed rgba(226,182,90,0.5); border-radius: 20px; color: #8F8A84">{{t.songsEmpty}}</p>
