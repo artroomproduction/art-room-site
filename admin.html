@@ -63,7 +63,7 @@ async function loadStats(){
     + '<p class="meta" style="margin-top:16px">Un vizitator = o persoană într-o zi (fără nume sau date personale). Roboții sunt excluși.</p>';
 }
 function show(t){ TAB = t; [...$('tabs').children].forEach(b => b.classList.toggle('on', b.dataset.t === t)); $('stats').style.display = t === 'stats' ? '' : 'none'; $('list').style.display = t === 'cm' ? '' : 'none'; $('msg').style.display = t === 'cm' ? '' : 'none'; }
-const songName = { 'million': 'Million', 'sing-it': 'Sing It', 'recenzii': '⭐ Recenzie pentru școală' };
+const songName = { 'million': 'Million', 'sing-it': 'Sing It', 'recenzii': '⭐ Recenzie pentru studio' };
 function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 async function api(path, body){
   const r = await fetch(path, { method: body ? 'POST' : 'GET', headers: { 'x-admin-key': KEY, 'content-type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
