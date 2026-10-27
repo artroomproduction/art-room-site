@@ -32,6 +32,12 @@ export class CommentsStore extends DurableObject {
       "SELECT COUNT(*) AS n FROM comments WHERE ip = ? AND created > ?", ip, now - 10 * 60 * 1000
     ).one().n;
     if (recent >= 3) return { ok: false, error: "rate" };
+    if (song === "recenzii") {
+      const today = this.sql.exec(
+        "SELECT COUNT(*) AS n FROM comments WHERE ip = ? AND song = 'recenzii' AND created > ?", ip, now - 24 * 60 * 60 * 1000
+      ).one().n;
+      if (today >= 1) return { ok: false, error: "rate-day" };
+    }
     this.sql.exec("INSERT INTO comments (song, name, text, created, ip) VALUES (?, ?, ?, ?, ?)", song, name, text, now, ip);
     return { ok: true };
   }
