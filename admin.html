@@ -41,7 +41,7 @@ h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold
 const $ = (id) => document.getElementById(id);
 let KEY = '';
 try { KEY = sessionStorage.getItem('ar-admin') || ''; } catch (e) {}
-const songName = { 'million': 'Million', 'sing-it': 'Sing It' };
+const songName = { 'million': 'Million', 'sing-it': 'Sing It', 'recenzii': '⭐ Recenzie pentru școală' };
 function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 async function api(path, body){
   const r = await fetch(path, { method: body ? 'POST' : 'GET', headers: { 'x-admin-key': KEY, 'content-type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
