@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Comentarii – administrare</title>
+<title>Art-Room – administrare</title>
 <style>
 :root{--bg:#0A0A0A;--card:#161616;--line:#2A2928;--text:#F2EDE4;--muted:#8F8A84;--gold:#E2B65A;--red:#B3122A}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,sans-serif}
@@ -24,12 +24,18 @@ button{font:inherit;border:0;border-radius:999px;padding:10px 18px;cursor:pointe
 .tag.p{background:var(--gold);color:#1a1405}.tag.a{background:#1f3b26;color:#9be3ad}
 h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:28px 0 0}
 #msg{color:var(--muted);margin-top:12px;font-size:14px}
+.tabs{display:flex;gap:8px;margin:0 0 18px}.tabs button{background:#151515;color:var(--muted);border:1px solid var(--line)}.tabs button.on{background:var(--gold);color:#1a1405;font-weight:700;border-color:var(--gold)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}.kpi b{display:block;font-size:30px;color:var(--gold);line-height:1.1}.kpi span{font-size:13px;color:var(--muted)}
+.bars{display:flex;align-items:flex-end;gap:3px;height:120px;margin-top:10px;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:16px}.bars i{flex:1;background:var(--gold);border-radius:3px 3px 0 0;min-height:2px;opacity:.85}
+.list{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 14px;margin-top:10px}.list div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}.list div:last-child{border:0}
 </style>
 </head>
 <body>
 <main>
-<h1>Comentarii la piese</h1>
-<p class="sub">Comentariile noi apar pe site doar după ce le aprobi aici.</p>
+<h1>Art-Room · administrare</h1>
+<p class="sub">Vizitatori, comentarii și recenzii. Comentariile apar pe site doar după ce le aprobi.</p>
+<div class="tabs" id="tabs" style="display:none"><button data-t="stats" class="on">📊 Vizitatori</button><button data-t="cm">💬 Comentarii</button></div>
+<div id="stats"></div>
 <div id="login">
 <input id="key" type="password" placeholder="Parola de administrare" autocomplete="current-password">
 <div class="row"><button class="gold" id="go">Intră</button></div>
@@ -41,6 +47,22 @@ h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold
 const $ = (id) => document.getElementById(id);
 let KEY = '';
 try { KEY = sessionStorage.getItem('ar-admin') || ''; } catch (e) {}
+const flag = (c) => c && c.length === 2 && c !== '?' ? String.fromCodePoint(...[...c.toUpperCase()].map(x => 127397 + x.charCodeAt(0))) + ' ' + c : 'necunoscut';
+let TAB = 'stats';
+async function loadStats(){
+  const d = await api('/api/admin/stats');
+  const k = (n, l) => `<div class="kpi"><b>${n}</b><span>${l}</span></div>`;
+  const days = []; for (let i = 29; i >= 0; i--) days.push(new Date(Date.now() - i * 864e5).toISOString().slice(0, 10));
+  const map = Object.fromEntries(d.days.map(x => [x.day, x.v])); const mx = Math.max(1, ...days.map(x => map[x] || 0));
+  const lst = (arr, f) => arr.length ? '<div class="list">' + arr.map(x => `<div><span>${esc(f(x.k))}</span><b>${x.v}</b></div>`).join('') + '</div>' : '<p class="meta">Încă nu sunt date.</p>';
+  $('stats').innerHTML = '<div class="kpis">' + k(d.today.v, 'vizitatori azi') + k(d.week.v, 'în ultimele 7 zile') + k(d.month.v, 'în ultimele 30 de zile') + k(d.total.v, 'de la început') + '</div>'
+    + '<h2>Ultimele 30 de zile</h2><div class="bars">' + days.map(x => `<i title="${x}: ${map[x] || 0}" style="height:${Math.round(100 * (map[x] || 0) / mx)}%"></i>`).join('') + '</div>'
+    + '<h2>De unde au venit</h2>' + lst(d.refs, x => x === 'direct' ? 'direct / link trimis' : x)
+    + '<h2>Țări</h2>' + lst(d.countries, flag)
+    + '<h2>Dispozitive</h2>' + lst(d.devices, x => x)
+    + '<p class="meta" style="margin-top:16px">Un vizitator = o persoană într-o zi (fără nume sau date personale). Roboții sunt excluși.</p>';
+}
+function show(t){ TAB = t; [...$('tabs').children].forEach(b => b.classList.toggle('on', b.dataset.t === t)); $('stats').style.display = t === 'stats' ? '' : 'none'; $('list').style.display = t === 'cm' ? '' : 'none'; $('msg').style.display = t === 'cm' ? '' : 'none'; }
 const songName = { 'million': 'Million', 'sing-it': 'Sing It', 'recenzii': '⭐ Recenzie pentru școală' };
 function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 async function api(path, body){
@@ -55,13 +77,14 @@ async function load(){
   try {
     const { comments } = await api('/api/admin/comments');
     try { sessionStorage.setItem('ar-admin', KEY); } catch (e) {}
-    $('login').style.display = 'none';
+    $('login').style.display = 'none'; $('tabs').style.display = ''; loadStats().catch(() => {}); show(TAB);
     const pend = comments.filter(c => !c.approved), ok = comments.filter(c => c.approved);
     $('msg').textContent = pend.length ? pend.length + ' comentarii așteaptă aprobarea.' : 'Niciun comentariu nou de aprobat.';
     const card = (c) => `<div class="card ${c.approved ? '' : 'pending'}"><div class="meta">${esc(songName[c.song] || c.song)} · ${new Date(c.created).toLocaleString('ro-RO')}<span class="tag ${c.approved ? 'a' : 'p'}">${c.approved ? 'PUBLICAT' : 'NOU'}</span></div><p style="margin:6px 0 0"><strong>${esc(c.name)}</strong></p><p style="margin:4px 0 0">${esc(c.text)}</p><div class="row">${c.approved ? '' : `<button class="gold" data-a="${c.id}">Aprobă</button>`}<button class="del" data-d="${c.id}">Șterge</button></div></div>`;
     $('list').innerHTML = (pend.length ? '<h2>De aprobat</h2>' + pend.map(card).join('') : '') + (ok.length ? '<h2>Publicate</h2>' + ok.map(card).join('') : '');
   } catch (e) { $('msg').textContent = e.message; $('login').style.display = ''; }
 }
+$('tabs').onclick = (e) => { if (e.target.dataset.t) show(e.target.dataset.t); };
 $('go').onclick = () => { KEY = $('key').value.trim(); load(); };
 $('key').onkeydown = (e) => { if (e.key === 'Enter') $('go').click(); };
 $('list').onclick = async (e) => {

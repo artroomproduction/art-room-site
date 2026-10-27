@@ -17,6 +17,9 @@ export class CommentsStore extends DurableObject {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       song TEXT NOT NULL, name TEXT NOT NULL, text TEXT NOT NULL,
       created INTEGER NOT NULL, approved INTEGER NOT NULL DEFAULT 0, ip TEXT)`);
+    this.sql.exec(`CREATE TABLE IF NOT EXISTS visits (
+      day TEXT NOT NULL, h TEXT NOT NULL, country TEXT, device TEXT, ref TEXT, views INTEGER NOT NULL DEFAULT 1,
+      PRIMARY KEY (day, h))`);
   }
   list(song) {
     return this.sql.exec(
@@ -37,6 +40,26 @@ export class CommentsStore extends DurableObject {
       "SELECT id, song, name, text, created, approved FROM comments ORDER BY approved ASC, created DESC LIMIT 500"
     ).toArray();
   }
+  hit(day, h, country, device, ref) {
+    this.sql.exec(`INSERT INTO visits (day, h, country, device, ref) VALUES (?, ?, ?, ?, ?)
+      ON CONFLICT(day, h) DO UPDATE SET views = views + 1`, day, h, country, device, ref);
+    const cutoff = new Date(Date.now() - 400 * 864e5).toISOString().slice(0, 10);
+    this.sql.exec("DELETE FROM visits WHERE day < ?", cutoff);
+    return { ok: true };
+  }
+  stats() {
+    const today = new Date().toISOString().slice(0, 10);
+    const since = (n) => new Date(Date.now() - n * 864e5).toISOString().slice(0, 10);
+    const one = (q, ...a) => this.sql.exec(q, ...a).one();
+    const sum = (from) => one("SELECT COUNT(*) AS v, COALESCE(SUM(views),0) AS p FROM visits WHERE day >= ?", from);
+    return {
+      today: sum(today), week: sum(since(6)), month: sum(since(29)), total: sum("0000"),
+      days: this.sql.exec("SELECT day, COUNT(*) AS v, SUM(views) AS p FROM visits WHERE day >= ? GROUP BY day ORDER BY day", since(29)).toArray(),
+      countries: this.sql.exec("SELECT country AS k, COUNT(*) AS v FROM visits WHERE day >= ? GROUP BY country ORDER BY v DESC LIMIT 10", since(29)).toArray(),
+      devices: this.sql.exec("SELECT device AS k, COUNT(*) AS v FROM visits WHERE day >= ? GROUP BY device ORDER BY v DESC", since(29)).toArray(),
+      refs: this.sql.exec("SELECT ref AS k, COUNT(*) AS v FROM visits WHERE day >= ? GROUP BY ref ORDER BY v DESC LIMIT 10", since(29)).toArray(),
+    };
+  }
   approve(id) { this.sql.exec("UPDATE comments SET approved = 1 WHERE id = ?", id); return { ok: true }; }
   remove(id) { this.sql.exec("DELETE FROM comments WHERE id = ?", id); return { ok: true }; }
 }
@@ -45,12 +68,35 @@ function clean(s, max) {
   return String(s || "").replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim().slice(0, max);
 }
 
-export default {
-  async fetch(request, env) {
-    const url = new URL(request.url);
-    if (!url.pathname.startsWith("/api/")) return env.ASSETS.fetch(request);
+const BOT = /bot|crawl|spider|slurp|preview|facebookexternalhit|whatsapp|telegram|lighthouse|headless|curl|wget|python|go-http/i;
 
+async function track(request, store) {
+  try {
+    const ua = request.headers.get("user-agent") || "";
+    if (!ua || BOT.test(ua)) return;
+    const day = new Date().toISOString().slice(0, 10);
+    const ip = request.headers.get("cf-connecting-ip") || "";
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(day + "|" + ip + "|" + ua));
+    const h = [...new Uint8Array(buf)].slice(0, 12).map((b) => b.toString(16).padStart(2, "0")).join("");
+    const country = (request.cf && request.cf.country) || "?";
+    const device = /iPad|Tablet/i.test(ua) ? "tabletă" : /Mobi|Android|iPhone/i.test(ua) ? "telefon" : "calculator";
+    let ref = "direct";
+    const r = request.headers.get("referer");
+    if (r) { try { const host = new URL(r).hostname.replace(/^www\./, ""); if (!/artroomproduction\.ro$|workers\.dev$/.test(host)) ref = /facebook|fb\.|messenger/.test(host) ? "Facebook" : /instagram/.test(host) ? "Instagram" : /google\./.test(host) ? "Google" : /tiktok/.test(host) ? "TikTok" : /youtube/.test(host) ? "YouTube" : host; } catch {} }
+    const q = new URL(request.url).searchParams;
+    if (q.get("fbclid")) ref = "Facebook";
+    await store.hit(day, h, country, device, ref);
+  } catch {}
+}
+
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
     const store = env.COMMENTS.get(env.COMMENTS.idFromName("main"));
+    if (!url.pathname.startsWith("/api/")) {
+      if (request.method === "GET" && (url.pathname === "/" || url.pathname === "/index.html")) ctx.waitUntil(track(request, store));
+      return env.ASSETS.fetch(request);
+    }
 
     if (url.pathname === "/api/comments" && request.method === "GET") {
       const song = url.searchParams.get("song") || "";
@@ -76,6 +122,7 @@ export default {
       if (!env.ADMIN_KEY) return json({ error: "no-key-configured" }, 503);
       if (key !== env.ADMIN_KEY) return json({ error: "auth" }, 401);
       if (url.pathname === "/api/admin/comments") return json({ comments: await store.all() });
+      if (url.pathname === "/api/admin/stats") return json(await store.stats());
       if (request.method === "POST") {
         let body; try { body = await request.json(); } catch { return json({ error: "body" }, 400); }
         const id = Number(body.id);

@@ -2,7 +2,7 @@
   "name": "art-room-site",
   "main": "src/worker.js",
   "compatibility_date": "2026-01-01",
-  "assets": { "directory": ".", "binding": "ASSETS" },
+  "assets": { "directory": ".", "binding": "ASSETS", "run_worker_first": ["/", "/index.html", "/api/*"] },
   "durable_objects": {
     "bindings": [{ "name": "COMMENTS", "class_name": "CommentsStore" }]
   },
